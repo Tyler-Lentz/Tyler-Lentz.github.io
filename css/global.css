@@ -96,6 +96,10 @@ a:visited {
     color: var(--ctp-frappe-blue);
 }
 
+a:hover {
+    color: var(--ctp-frappe-rosewater);
+}
+
 body, h1 {
     color: var(--ctp-frappe-text);
 }
@@ -106,4 +110,19 @@ h2, h3, h4, h5 {
 
 label {
     color: var(--catp-frappe-subtext1);
+}
+
+/* ======================
+    Normal Styling
+   ====================== */ 
+
+@font-face {
+  font-family: 'Jetbrains Mono';
+  src: url("../fonts/JetBrainsMono-Regular.ttf");
+}
+
+body {
+    font-family: 'Jetbrains Mono', monospace;
+    font-size: 16px;
+    line-height: 1.5;
 }
