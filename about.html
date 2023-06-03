@@ -9,6 +9,17 @@
     <link rel="stylesheet" media="screen" href="css/global.css">
     <link rel="stylesheet" media="screen" href="css/about.css">
     <script type="module" src="js/my-gallery.js"></script>
+    <script>
+        // hack to fix images flickering for a second before being moved correctly
+        // in my-gallery custom component
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelectorAll('img').forEach((img) => {
+                    img.classList.remove('hidden');
+                });
+            }, 100);
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -27,7 +38,11 @@
             <section slot="1">
                 <h2>General</h2>
 
-                <img class="left" src="images/about-me-picture.png" alt="Me in a suit." width="289" height="639">
+                <img class="left hidden" 
+                     src="images/about-me-picture.png" 
+                     alt="Me in a suit." 
+                     width="289" 
+                     height="639">
 
                 <p>
                     Hi, I'm <span class="highlight">Tyler Lentz</span>. 
@@ -55,7 +70,11 @@
             <section slot="2">
                 <h2>Academics</h2>
 
-                <img class="center" src="images/2022-competition.jpg" alt="TUAS 2022 5th place team." width="646" height="426">
+                <img class="center hidden" 
+                     src="images/2022-competition.jpg" 
+                     alt="TUAS 2022 5th place team." 
+                     width="646" 
+                     height="426">
 
                 <p>
                     I graduated from <span class="highlight">Saugus High School</span> in the year 2020.

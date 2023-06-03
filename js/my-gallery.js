@@ -34,7 +34,6 @@ class MyGallery extends HTMLElement {
             clearTimeout(this.scrollTimeout);
             this.scrollTimeout = setTimeout(() => {
                 this.scrolling = false;
-                console.log("programatically scrolling done");
             }, 100);
 
             if (!this.scrolling) {
@@ -51,8 +50,6 @@ class MyGallery extends HTMLElement {
     #scroll(direction) {
         this.scrolling = true;
 
-        console.log("Programatically scrolling");
-
         if (direction === "up") {
             this.currentSlot--;
             if (this.currentSlot < 0) {
@@ -68,8 +65,6 @@ class MyGallery extends HTMLElement {
             }
         }
         let elem = this.gallery.children[this.currentSlot].assignedElements()[0];
-        console.log('current', this.currentSlot)
-        console.log('scroll into view')
         elem.scrollIntoView({behavior: "smooth"});
     }
 
