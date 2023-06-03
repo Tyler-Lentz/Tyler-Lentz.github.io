@@ -11,14 +11,25 @@ class MyGallery extends HTMLElement {
 
         this.gallery = this.shadowRoot.querySelector('.gallery');
 
-        this.gallery.addEventListener('click', (event) => {
-            this.gallery.children[this.currentSlot].setAttribute('data-active', 'false');
-            this.currentSlot++;
-            if (this.currentSlot >= this.children.length) {
-                this.currentSlot = 0;
+        document.addEventListener('keydown', (e) => {
+            if (e.key == "ArrowDown") {
+                this.currentSlot++;
+                if (this.currentSlot >= this.children.length) {
+                    this.currentSlot--;
+                }
+                let elem = this.gallery.children[this.currentSlot].assignedElements()[0];
+                console.log(elem);
+                elem.scrollIntoView();
+            } else if (e.key == "ArrowUp") {
+                this.currentSlot--;
+                if (this.currentSlot < 0) {
+                    this.currentSlot = 0;
+                }
+                let elem = this.gallery.children[this.currentSlot].assignedElements()[0];
+                console.log(elem);
+                elem.scrollIntoView();
             }
-            this.gallery.children[this.currentSlot].setAttribute('data-active', 'true');
-        })
+        });
     }
 
     disconnectedCallback() {
@@ -33,20 +44,11 @@ class MyGallery extends HTMLElement {
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
-                    border: 1px solid var(--ctp-frappe-overlay2);
-                    border-radius: 0.5em;
                     width: fit-content;
                     margin: auto;
-                }
 
-                div.gallery > *[data-active="true"] {
-                    display: block;
+                    transition: 1s ease-in all;
                 }
-
-                div.gallery > *[data-active="false"] {
-                    display: none;
-                }
-
             </style>
         `
     }
@@ -54,7 +56,7 @@ class MyGallery extends HTMLElement {
     #makeSlotsHTML() {
         let html = '<div class="gallery">';
         for (let i = 0; i < this.children.length; i++) {
-            html += `<slot name="${i+1}" data-active="${this.currentSlot === i}"></slot>`;
+            html += `<slot name="${i+1}" style="" ></slot>`;
         }
         html += `</div>`;
         return html;
