@@ -6,33 +6,92 @@ class MyGallery extends HTMLElement {
     connectedCallback() {
         this.attachShadow({mode: 'open'});
         this.currentSlot = 0;
+        this.scrolling = false;
 
         this.shadowRoot.innerHTML = this.#makeStyleHTML() + this.#makeSlotsHTML();
 
         this.gallery = this.shadowRoot.querySelector('.gallery');
 
+        for (const elem of this.gallery.children) {
+            let current = elem.assignedElements()[0];
+            current.style = "min-height: 100vh";
+        }
+
         document.addEventListener('keydown', (e) => {
             if (e.key == "ArrowDown") {
-                this.currentSlot++;
-                if (this.currentSlot >= this.children.length) {
-                    this.currentSlot--;
-                }
-                let elem = this.gallery.children[this.currentSlot].assignedElements()[0];
-                console.log(elem);
-                elem.scrollIntoView();
+                e.preventDefault();
+                this.#scroll("down");
             } else if (e.key == "ArrowUp") {
-                this.currentSlot--;
-                if (this.currentSlot < 0) {
-                    this.currentSlot = 0;
-                }
-                let elem = this.gallery.children[this.currentSlot].assignedElements()[0];
-                console.log(elem);
-                elem.scrollIntoView();
+                e.preventDefault();
+                this.#scroll("up");
             }
         });
+
+        this.prevScroll = null;
+
+        this.scrollTimeout = null; // used to detect when scrolling is finished
+        document.addEventListener("scroll", (e) => {
+            clearTimeout(this.scrollTimeout);
+            this.scrollTimeout = setTimeout(() => {
+                this.scrolling = false;
+                console.log("programatically scrolling done");
+            }, 100);
+
+            if (!this.scrolling) {
+                e.preventDefault();
+
+                if (this.prevScroll != null) {
+                    if (this.prevScroll < window.scrollY) {
+                        this.currentSlot--;
+                        if (this.currentSlot < 0) {
+                            this.currentSlot = 0;
+                        }
+                    } else {
+                        this.currentSlot++;
+                        if (this.currentSlot < 0) {
+                            this.currentSlot = 0;
+                        }
+                    }
+                    this.scrolling = true;
+                }
+            }
+
+            this.prevScroll = window.scrollY;
+        });
+
+        setInterval(() => {
+            if (!this.scrolling) {
+                this.gallery.children[this.currentSlot].assignedElements()[0].scrollIntoView({behavior: "smooth"});
+            }
+        }, 100);
     }
 
     disconnectedCallback() {
+    }
+
+    #scroll(direction) {
+        this.scrolling = true;
+
+        console.log("Programatically scrolling");
+
+        if (direction === "up") {
+            this.currentSlot--;
+            if (this.currentSlot < 0) {
+                this.currentSlot = -1;
+                // edge case: scroll to absolute top of screen
+                window.scroll({behavior: "smooth", top: 0});
+                return;
+            }
+        } else if (direction === "down") {
+            this.currentSlot++;
+            if (this.currentSlot >= this.children.length) {
+                this.currentSlot--;
+            }
+        }
+        let elem = this.gallery.children[this.currentSlot].assignedElements()[0];
+        console.log('current', this.currentSlot)
+        console.log('scroll into view')
+        elem.scrollIntoView({behavior: "smooth"});
     }
 
     #makeStyleHTML() {
@@ -46,8 +105,6 @@ class MyGallery extends HTMLElement {
                     align-items: center;
                     width: fit-content;
                     margin: auto;
-
-                    transition: 1s ease-in all;
                 }
             </style>
         `

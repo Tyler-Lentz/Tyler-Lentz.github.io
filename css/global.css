@@ -116,6 +116,8 @@ label {
     Normal Styling
    ====================== */ 
 
+/* Font */
+
 @font-face {
   font-family: 'Jetbrains Mono';
   src: url("../fonts/JetBrainsMono-Regular.ttf");
@@ -125,4 +127,24 @@ body {
     font-family: 'Jetbrains Mono', monospace;
     font-size: 16px;
     line-height: 1.5;
+}
+
+/* Nav Bar */
+
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    padding: 0rem 1rem;
+    border-right: 1px solid var(--ctp-frappe-overlay0);
+}
+
+nav li:last-child a {
+    border-right: none;
 }
