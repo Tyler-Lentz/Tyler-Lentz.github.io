@@ -39,31 +39,10 @@ class MyGallery extends HTMLElement {
 
             if (!this.scrolling) {
                 e.preventDefault();
-
-                if (this.prevScroll != null) {
-                    if (this.prevScroll < window.scrollY) {
-                        this.currentSlot--;
-                        if (this.currentSlot < 0) {
-                            this.currentSlot = 0;
-                        }
-                    } else {
-                        this.currentSlot++;
-                        if (this.currentSlot < 0) {
-                            this.currentSlot = 0;
-                        }
-                    }
-                    this.scrolling = true;
-                }
             }
 
             this.prevScroll = window.scrollY;
         });
-
-        setInterval(() => {
-            if (!this.scrolling) {
-                this.gallery.children[this.currentSlot].assignedElements()[0].scrollIntoView({behavior: "smooth"});
-            }
-        }, 100);
     }
 
     disconnectedCallback() {

@@ -10,13 +10,28 @@ nav {
     justify-content: center;
 }
 
+main {
+    background-color: var(--ctp-frappe-crust);
+}
+
 @media only screen and (min-width: 1700px) {
+    body {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+    }
+
     header {
         position: sticky;
         top: 1em;
-        float: left;
         text-align: left;
         margin-left: 1em;
+        align-self: flex-start;
+        width: 20vw;
+    }
+
+    main {
+        width: 80vw;
     }
     
     header h1 {
@@ -40,6 +55,6 @@ p {
     margin: 1rem;
 }
 
-main {
+section {
     background-color: var(--ctp-frappe-crust);
 }
