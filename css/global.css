@@ -116,6 +116,11 @@ label {
     color: var(--ctp-frappe-sapphire);
 }
 
+::selection {
+    background-color: var(--ctp-frappe-rosewater);
+    color: var(--ctp-frappe-base);
+}
+
 /* ======================
     My CSS Variables 
    ====================== */ 
@@ -147,6 +152,7 @@ nav ul {
     list-style-type: none;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     padding: 0;
 }
 

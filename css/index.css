@@ -15,6 +15,51 @@ main {
     font-size: 2rem;
 }
 
+@media screen and (max-width: 900px) {
+    main {
+        font-size: 1rem; 
+    }
+}
+
+@media screen and (max-width: 600px) {
+    nav {
+        display: block; /* turn off flexbox centering above, so it is aligned left */
+    }
+
+    nav ul {
+        flex-direction: column; /* orient vertically to fit in sidebar */
+    }
+
+    nav ul a {
+        border-right: none;
+        border-left: var(--border);
+    }
+}
+
 h1 {
     text-align: center;
+}
+
+h1::after {
+    position: relative;
+    left: -0.25em;
+    content: '|';
+    white-space: pre;
+    color: var(--ctp-frappe-rosewater);
+    animation: cursor 1s infinite;
+}
+
+@keyframes cursor {
+    0% {
+        opacity: 1;
+    }
+    49% {
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
 }
