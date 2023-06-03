@@ -8,16 +8,47 @@
 
     <link rel="stylesheet" media="screen" href="css/global.css">
     <link rel="stylesheet" media="screen" href="css/index.css">
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Typewriter effect for h1
+            let h1 = document.getElementById("type-h1");
+            h1.style.display = "block";
+            function typeLetter(i, text, elem) {
+                if (i < text.length) {
+                    elem.innerHTML += text.charAt(i);
+                    setTimeout(() => {
+                        typeLetter(i + 1, text, elem);
+                    }, 84.5);
+                }
+            }
+            typeLetter(0, "tyler-lentz.github.io", h1);
+
+            // Typewriter effect for hovering over nav links
+            let anchors = document.querySelectorAll("nav a");
+            for (const anchor of anchors) {
+                let text = anchor.href;
+
+                anchor.addEventListener("mouseover", () => {
+                    typeLetter(0, anchor.dataset['uri'], h1);
+                });
+            }
+        });
+
+    </script>
 </head>
 <body>
     <main>
-        <h1>tyler-lentz.github.io</h1>
+        <noscript>
+            <h1>tyler-lentz.github.io</h1>
+        </noscript>
+        <h1 id="type-h1" style="display: none"></h1>
         <nav>
             <ul>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="booklog.html">Book Log</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html" data-uri="/about.html">About</a></li>
+                <li><a href="projects.html" data-uri="/projects.html">Projects</a></li>
+                <li><a href="booklog.html" data-uri="/booklog.html">Book Log</a></li>
+                <li><a href="contact.html" data-uri="/contact.html">Contact</a></li>
             </ul>
         </nav>
     </main>
