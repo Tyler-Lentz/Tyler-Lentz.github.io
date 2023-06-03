@@ -14,7 +14,7 @@ main {
     background-color: var(--ctp-frappe-crust);
 }
 
-@media only screen and (min-width: 1700px) {
+@media only screen and (min-width: 1600px) {
     body {
         display: flex;
         flex-direction: row;
@@ -27,11 +27,11 @@ main {
         text-align: left;
         margin-left: 1em;
         align-self: flex-start;
-        width: 20vw;
+        width: 10vw;
     }
 
     main {
-        width: 80vw;
+        width: 90vw;
     }
     
     header h1 {
@@ -42,19 +42,49 @@ main {
     nav {
         display: block; /* turn off flexbox centering above, so it is aligned left */
     }
+
+    nav ul {
+        flex-direction: column; /* orient vertically to fit in sidebar */
+    }
+
+    nav ul a {
+        border-right: none;
+        border-left: var(--border);
+    }
 }
 
 img {
-    float: left;
     opacity: 0.67;
     border-radius: 1rem;
     margin: 1rem;
 }
 
+img.left {
+    float: left;
+    margin-right: 3rem;
+}
+
+img.right {
+    float: right;
+    margin-left: 3rem;
+}
+
+img.center {
+    margin: auto;
+}
+
 p {
-    margin: 1rem;
+    margin: 2rem;
+    padding: 1rem;
+    max-width: 50vw;
+}
+
+p + ul {
+    margin: auto;
+    width: fit-content;
 }
 
 section {
     background-color: var(--ctp-frappe-crust);
+    width: 100%;
 }

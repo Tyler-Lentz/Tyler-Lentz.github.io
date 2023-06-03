@@ -109,7 +109,19 @@ h2, h3, h4, h5 {
 }
 
 label {
-    color: var(--catp-frappe-subtext1);
+    color: var(--ctp-frappe-subtext1);
+}
+
+.highlight {
+    color: var(--ctp-frappe-sapphire);
+}
+
+/* ======================
+    My CSS Variables 
+   ====================== */ 
+   
+:root {
+    --border: 1px solid var(--ctp-frappe-overlay0);
 }
 
 /* ======================
@@ -131,7 +143,6 @@ body {
 
 /* Nav Bar */
 
-
 nav ul {
     list-style-type: none;
     display: flex;
@@ -142,7 +153,7 @@ nav ul {
 nav a {
     text-decoration: none;
     padding: 0rem 1rem;
-    border-right: 1px solid var(--ctp-frappe-overlay0);
+    border-right: var(--border);
 }
 
 nav li:last-child a {
