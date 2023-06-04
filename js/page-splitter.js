@@ -1,4 +1,4 @@
-class MyGallery extends HTMLElement {
+class PageSplitter extends HTMLElement {
     constructor() {
         super();
     }
@@ -10,7 +10,7 @@ class MyGallery extends HTMLElement {
 
         this.shadowRoot.innerHTML = this.#makeStyleHTML() + this.#makeSlotsHTML();
 
-        this.gallery = this.shadowRoot.querySelector('.gallery');
+        this.gallery = this.shadowRoot.querySelector('.container');
 
         for (const elem of this.gallery.children) {
             let current = elem.assignedElements()[0];
@@ -71,7 +71,7 @@ class MyGallery extends HTMLElement {
     #makeStyleHTML() {
         return `
             <style>
-                div.gallery {
+                div.container {
                     display: flex;
                     padding: 1em;
                     flex-direction: column;
@@ -85,13 +85,13 @@ class MyGallery extends HTMLElement {
     }
 
     #makeSlotsHTML() {
-        let html = '<div class="gallery">';
+        let html = '<div class="container">';
         for (let i = 0; i < this.children.length; i++) {
-            html += `<slot name="${i+1}" style="" ></slot>`;
+            html += `<slot name="${i+1}" ></slot>`;
         }
         html += `</div>`;
         return html;
     }
 }
 
-customElements.define('my-gallery', MyGallery);
+customElements.define('page-splitter', PageSplitter);

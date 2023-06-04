@@ -8,7 +8,8 @@
 
     <link rel="stylesheet" media="screen" href="css/global.css">
     <link rel="stylesheet" media="screen" href="css/about.css">
-    <script type="module" src="js/my-gallery.js"></script>
+    <script type="module" src="js/page-splitter.js"></script>
+    <script type="module" src="js/slide-gallery.js"></script>
     <script>
         // hack to fix images flickering for a second before being moved correctly
         // in my-gallery custom component
@@ -34,7 +35,7 @@
         </nav>
     </header>
     <main>
-        <my-gallery>
+        <page-splitter>
             <section slot="1">
                 <h2>General</h2>
 
@@ -94,14 +95,88 @@
                 <h2>Favorites</h2>
                 <p>I have many other kinds of favorites as well, so here is a selection of my favorite favorites:</p>
 
-                <p>Favorite Book Series:</p>
-                <ul>
-                    <li>The Wheel of Time</li>
-                    <li>The Expanse</li>
-                    <li>Realm of the Elderlings</li>
-                </ul>
+                <slide-gallery>
+                    <div slot="1">
+                        <h3>Books 1</h3>
+                        <p>
+                            I love reading, and I especially love reading <span class="highlight">Fantasy</span> and <span class="highlight">Sci-fi</span>.
+                            Some of my favorite books include:
+                        </p>
+                        <ul>
+                            <li><span class="highlight">The Stormlight Archive</span> by Brandon Sanderson</li>
+                            <li><span class="highlight">The Wheel of Time</span> by Robert Jordan and Brandon Sanderson</li>
+                            <li><span class="highlight">The Lord of the Rings</span> by J.R.R. Tolkien</li>
+                            <li><span class="highlight">The Kingkiller Chronicle</span> by Patrick Rothfuss</li>
+                            <li><span class="highlight">The Dresden Files</span> by Jim Butcher</li>
+                        </ul>
+                    </div>
+                    <div slot="2">
+                        <h3>Books 2</h3>
+                        <p>
+                            I love reading, and I especially love reading <span class="highlight">Fantasy</span> and <span class="highlight">Sci-fi</span>.
+                            Some of my favorite books include:
+                        </p>
+                        <ul>
+                            <li><span class="highlight">The Stormlight Archive</span> by Brandon Sanderson</li>
+                            <li><span class="highlight">The Wheel of Time</span> by Robert Jordan and Brandon Sanderson</li>
+                            <li><span class="highlight">The Lord of the Rings</span> by J.R.R. Tolkien</li>
+                            <li><span class="highlight">The Kingkiller Chronicle</span> by Patrick Rothfuss</li>
+                            <li><span class="highlight">The Dresden Files</span> by Jim Butcher</li>
+                        </ul>
+                    </div>
+                    <div slot="3">
+                        <h3>Books 3</h3>
+                        <p>
+                            I love reading, and I especially love reading <span class="highlight">Fantasy</span> and <span class="highlight">Sci-fi</span>.
+                            Some of my favorite books include:
+                        </p>
+                        <ul>
+                            <li><span class="highlight">The Stormlight Archive</span> by Brandon Sanderson</li>
+                            <li><span class="highlight">The Wheel of Time</span> by Robert Jordan and Brandon Sanderson</li>
+                            <li><span class="highlight">The Lord of the Rings</span> by J.R.R. Tolkien</li>
+                            <li><span class="highlight">The Kingkiller Chronicle</span> by Patrick Rothfuss</li>
+                            <li><span class="highlight">The Dresden Files</span> by Jim Butcher</li>
+                        </ul>
+                    </div>
+                    <div slot="4">
+                        <h3>Books 4</h3>
+                        <p>
+                            I love reading, and I especially love reading <span class="highlight">Fantasy</span> and <span class="highlight">Sci-fi</span>.
+                            Some of my favorite books include:
+                        </p>
+                        <ul>
+                            <li><span class="highlight">The Stormlight Archive</span> by Brandon Sanderson</li>
+                            <li><span class="highlight">The Wheel of Time</span> by Robert Jordan and Brandon Sanderson</li>
+                            <li><span class="highlight">The Lord of the Rings</span> by J.R.R. Tolkien</li>
+                            <li><span class="highlight">The Kingkiller Chronicle</span> by Patrick Rothfuss</li>
+                            <li><span class="highlight">The Dresden Files</span> by Jim Butcher</li>
+                        </ul>
+                    </div>
+                    <div slot="5">
+                        <h3>Books 5</h3>
+                        <p>
+                            I love reading, and I especially love reading <span class="highlight">Fantasy</span> and <span class="highlight">Sci-fi</span>.
+                            Some of my favorite books include:
+                        </p>
+                        <ul>
+                            <li><span class="highlight">the stormlight archive</span> by brandon sanderson</li>
+                            <li><span class="highlight">the stormlight archive</span> by brandon sanderson</li>
+                            <li><span class="highlight">the stormlight archive</span> by brandon sanderson</li>
+                            <li><span class="highlight">the wheel of time</span> by robert jordan and brandon sanderson</li>
+                            <li><span class="highlight">the lord of the rings</span> by j.r.r. tolkien</li>
+                            <li><span class="highlight">the kingkiller chronicle</span> by patrick rothfuss</li>
+                            <li><span class="highlight">the wheel of time</span> by robert jordan and brandon sanderson</li>
+                            <li><span class="highlight">the lord of the rings</span> by j.r.r. tolkien</li>
+                            <li><span class="highlight">the kingkiller chronicle</span> by patrick rothfuss</li>
+                            <li><span class="highlight">the wheel of time</span> by robert jordan and brandon sanderson</li>
+                            <li><span class="highlight">the lord of the rings</span> by j.r.r. tolkien</li>
+                            <li><span class="highlight">the kingkiller chronicle</span> by patrick rothfuss</li>
+                            <li><span class="highlight">the dresden files</span> by jim butcher</li>
+                        </ul>
+                    </div>
+                </slide-gallery>
             </section>
-        </my-gallery>
+        </page-splitter>
     </main>
 </body>
 </html>
