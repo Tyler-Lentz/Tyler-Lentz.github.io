@@ -41,15 +41,16 @@ h1 {
 }
 
 h1::after {
-    position: relative;
-    left: -0.25em;
-    content: '|';
+    content: ' ';
     white-space: pre;
-    color: var(--ctp-frappe-rosewater);
-    animation: cursor 1s infinite;
+    border-left: .125em solid var(--ctp-frappe-rosewater);
 }
 
-@keyframes cursor {
+h1[data-flicker]::after {
+    animation: cursorFlicker 1s infinite;
+}
+
+@keyframes cursorFlicker {
     0% {
         opacity: 1;
     }
