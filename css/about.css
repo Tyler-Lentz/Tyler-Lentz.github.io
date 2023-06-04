@@ -51,6 +51,7 @@ main {
         border-right: none;
         border-left: var(--border);
     }
+
 }
 
 img {

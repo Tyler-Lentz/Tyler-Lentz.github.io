@@ -116,10 +116,10 @@ class SlideGallery extends HTMLElement {
                     grid-column: 1;
                 }
                 ::slotted(.left) {
-                    transform: translateX(-115%);
+                    transform: translateX(-120%);
                 }
                 ::slotted(.right) {
-                    transform: translateX(115%);
+                    transform: translateX(120%);
                 }
                 ::slotted(.center) {
                     transform: translateX(0);
