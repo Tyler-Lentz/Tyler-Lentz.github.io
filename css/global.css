@@ -127,6 +127,10 @@ label {
    
 :root {
     --border: 1px solid var(--ctp-frappe-overlay0);
+
+    --button-hover-bkg: var(--ctp-frappe-blue);
+    --button-hover-transition: background-color 0.2s ease-in-out;
+    --button-border-radius: 0.5rem;
 }
 
 /* ======================
