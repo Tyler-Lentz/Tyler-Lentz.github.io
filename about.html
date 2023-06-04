@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tyler Lentz</title>
+
+    <link rel="stylesheet" media="screen" href="css/global.css">
+    <link rel="stylesheet" media="screen" href="css/about.css">
+    <script type="module" src="js/page-splitter.js"></script>
+    <script type="module" src="js/slide-gallery.js"></script>
+    <script>
+        // hack to fix images flickering for a second before being moved correctly
+        // in my-gallery custom component
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelectorAll('img').forEach((img) => {
+                    img.classList.remove('hidden');
+                });
+            }, 100);
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>About</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="booklog.html">Book Log</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <page-splitter>
+            <section slot="1">
+                <h2>General</h2>
+
+                <img class="left hidden" 
+                     src="images/about/tyler.png" 
+                     alt="Me in a suit." 
+                     width="289" 
+                     height="639">
+
+                <p>
+                    Hi, I'm <span class="highlight">Tyler Lentz</span>. 
+                    I grew up in <span class="highlight">Santa Clarita, California</span>
+                        and am currently in my third year of studying <span class="highlight">Computer Science</span> at 
+                        <span class="highlight">UCSD</span>.
+                </p>
+
+                <p>
+                    I am interested in all things <span class="highlight">Fantasy</span> and <span class="highlight">Sci-fi</span>, and especially books. 
+                    I enjoy programming, and especially <span class="highlight">frontend design</span>. 
+                    I also really enjoy lower level systems languages like <span class="highlight">C</span> and <span class="highlight">Rust</span>.
+                </p>
+
+                <p>
+                    I am currently one of two Software Leads for the club <span class="highlight">Triton UAS</span> at UCSD.
+                    To learn more about what we do, please visit <a href="https://tuas.ucsd.edu/">our website</a>.
+                </p>
+
+                <p>
+                    To keep reading, you can either scroll down or press the "Down" arrow key.
+                </p>
+
+            </section>
+            <section slot="2">
+                <h2>Academics</h2>
+
+                <img class="center hidden" 
+                     src="images/about/2022-competition.jpg" 
+                     alt="TUAS 2022 5th place team." 
+                     width="646" 
+                     height="426">
+
+                <p>
+                    I graduated from <span class="highlight">Saugus High School</span> in the year 2020.
+                    From there I went to <span class="highlight">UCSD</span> where I currently am in my third year and am
+                        expected to graduate in June of 2024.
+                    Some of my favorite classes I've taken at <span class="highlight">UCSD</span> include:
+                </p>
+                <ul class="class-list">
+                    <li>CSE 120: <span class="highlight">Operating Systems</span>, taught by Professor <span class="highlight">Joseph Pasquale</span>.</li>
+                    <li>CSE 131: <span class="highlight">Compiler Construction</span>, taught by Professor <span class="highlight">Joe Politz</span>.</li>
+                    <li>CSE 134B: <span class="highlight">Web Client Languages</span>, taught by Professor <span class="highlight">Thomas Powell</span>.</li>
+                    <li>CSE 150B: <span class="highlight">AI: Search and Reasoning</span>, taught by Professor <span class="highlight">Sicun Gao</span>.</li>
+                </ul>
+            </section >
+            <section slot="3">
+                <h2>Technical Skills</h2>
+
+                <p> I have experience in the following languages, roughly in order from most to least comfortable. </p>
+                <ol>
+                    <li class="highlight">C, C++</li>
+                    <li class="highlight">Javascript, CSS, HTML</li>
+                    <li class="highlight">Python</li>
+                    <li class="highlight">Rust</li>
+                    <li class="highlight">Go</li>
+                    <li class="highlight">Svelte</li>
+                    <hr>
+                    <li class="highlight">Java</li>
+                    <li class="highlight">SQL</li>
+                </ol>
+                <p>
+                        I also have gained experience with the following tools, technologies, 
+                    and skills through my work in classes and <span class="highlight">Triton UAS</span>.
+                </p>
+                <ul>
+                    <li class="highlight">Git</li>
+                    <li class="highlight">Github</li>
+                    <li class="highlight">Linux</li>
+                    <li class="highlight">Bash</li>
+                    <hr>
+                    <li class="highlight">Technical Writing</li>
+                    <li class="highlight">Agile Development</li>
+                    <li class="highlight">Project Management</li>
+                </ul>
+            </section>
+            <section slot="4">
+                <h2>Favorites</h2>
+                <p>I have many kinds of favorites, so here is a selection of my favorite favorites:</p>
+
+                <slide-gallery>
+                    <div slot="1">
+                        <figure>
+                            <img
+                                src="images/about/favorites/the-wheel-of-time.webp" 
+                                alt="The Wheel of Time"
+                                width="400"
+                                height="600">
+                            <figcaption>Favorite Fantasy Series: <span class="highlight">The Wheel of Time</span></figcaption>
+                        </figure>
+                    </div>
+                    <div slot="2">
+                        <figure>
+                            <img 
+                                src="images/about/favorites/the-expanse.jpg" 
+                                alt="The Expanse"
+                                width="400"
+                                height="600">
+                            <figcaption>Favorite Sci-fi Series: <span class="highlight">The Expanse</span></figcaption>
+                        </figure>
+                    </div>
+                    <div slot="3">
+                        <figure>
+                            <img 
+                                src="images/about/favorites/children-of-men.jpg" 
+                                alt="Children of Men"
+                                width="400"
+                                height="600">
+                            <figcaption>Favorite Film: <span class="highlight">Children of Men</span></figcaption>
+                        </figure>
+                    </div>
+                    <div slot="4">
+                        <figure>
+                            <img 
+                                src="images/about/favorites/outer-wilds.png" 
+                                alt="Outer Wilds"
+                                width="400"
+                                height="600">
+                            <figcaption>Favorite Video Game: <span class="highlight">Outer Wilds</span></figcaption>
+                        </figure>
+                    </div>
+                    <div slot="5">
+                        <figure>
+                            <img 
+                                src="images/about/favorites/violet-evergarden.jpg" 
+                                alt="Violet Evergarden"
+                                width="400"
+                                height="600">
+                            <figcaption>Favorite Anime: <span class="highlight">Violet Evergarden</span></figcaption>
+                        </figure>
+                    </div>
+                    <div slot="6">
+                        <figure>
+                            <img 
+                                src="images/about/favorites/chainsaw-man.jpg" 
+                                alt="Chainsaw Man"
+                                width="400"
+                                height="600">
+                            <figcaption>Favorite Manga: <span class="highlight">Chainsaw Man</span></figcaption>
+                        </figure>
+                    </div>
+                    <div slot="7">
+                        <figure>
+                            <img 
+                                src="images/about/favorites/noooo.gif" 
+                                alt="NOOOO! gif"
+                                width="498"
+                                height="498">
+                            <figcaption>Favorite Gif/Emoji: <span class="highlight">This one</span></figcaption>
+                        </figure>
+                    </div>
+                </slide-gallery>
+            </section>
+        </page-splitter>
+    </main>
+</body>
+</html>

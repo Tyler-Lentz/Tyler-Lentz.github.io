@@ -109,12 +109,39 @@ h2, h3, h4, h5 {
 }
 
 label {
-    color: var(--catp-frappe-subtext1);
+    color: var(--ctp-frappe-subtext1);
+}
+
+.highlight {
+    color: var(--ctp-frappe-sapphire);
+}
+
+::selection {
+    background-color: var(--ctp-frappe-rosewater);
+    color: var(--ctp-frappe-base);
+}
+
+hr {
+    border-color: var(--ctp-frappe-blue);
+}
+
+/* ======================
+    My CSS Variables 
+   ====================== */ 
+   
+:root {
+    --border: 1px solid var(--ctp-frappe-overlay0);
+
+    --button-hover-bkg: var(--ctp-frappe-blue);
+    --button-hover-transition: background-color 0.2s ease-in-out;
+    --button-border-radius: 0.5rem;
 }
 
 /* ======================
     Normal Styling
    ====================== */ 
+
+/* Font */
 
 @font-face {
   font-family: 'Jetbrains Mono';
@@ -125,4 +152,25 @@ body {
     font-family: 'Jetbrains Mono', monospace;
     font-size: 16px;
     line-height: 1.5;
+    caret-color: transparent;
+}
+
+/* Nav Bar */
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    padding: 0rem 1rem;
+    border-right: var(--border);
+}
+
+nav li:last-child a {
+    border-right: none;
 }

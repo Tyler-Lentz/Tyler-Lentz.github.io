@@ -15,23 +15,52 @@ main {
     font-size: 2rem;
 }
 
+@media screen and (max-width: 900px) {
+    main {
+        font-size: 1rem; 
+    }
+}
+
+@media screen and (max-width: 600px) {
+    nav {
+        display: block; /* turn off flexbox centering above, so it is aligned left */
+    }
+
+    nav ul {
+        flex-direction: column; /* orient vertically to fit in sidebar */
+    }
+
+    nav ul a {
+        border-right: none;
+        border-left: var(--border);
+    }
+}
+
 h1 {
     text-align: center;
 }
 
-ul {
-    list-style-type: none;
-    display: flex;
-    flex-direction: row;
-    padding: 0;
+h1::after {
+    content: ' ';
+    white-space: pre;
+    border-left: .125em solid var(--ctp-frappe-rosewater);
 }
 
-a {
-    text-decoration: none;
-    padding: 0rem 1rem;
-    border-right: 1px solid var(--ctp-frappe-overlay0);
+h1[data-flicker]::after {
+    animation: cursorFlicker 1s infinite;
 }
 
-li:last-child a {
-    border-right: none;
+@keyframes cursorFlicker {
+    0% {
+        opacity: 1;
+    }
+    49% {
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
 }
