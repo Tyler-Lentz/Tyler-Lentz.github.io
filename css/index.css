@@ -15,6 +15,13 @@ main {
     font-size: 2rem;
 }
 
+nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 @media screen and (max-width: 900px) {
     main {
         font-size: 1rem; 
@@ -22,17 +29,12 @@ main {
 }
 
 @media screen and (max-width: 600px) {
-    nav {
-        display: block; /* turn off flexbox centering above, so it is aligned left */
-    }
-
     nav ul {
         flex-direction: column; /* orient vertically to fit in sidebar */
     }
 
     nav ul a {
-        border-right: none;
-        border-left: var(--border);
+        border-right: none !important;
     }
 }
 
@@ -63,4 +65,22 @@ h1.cursor[data-flicker]::after {
     100% {
         opacity: 0;
     }
+}
+
+/* Icons for contact links*/
+img.icon {
+    width: 2rem;
+    height: 2rem;
+    margin: 0 0.5rem;
+    border-radius: 0;
+    display: inline-block;
+
+    position: relative;
+    top: 0.5rem;
+}
+
+img.icon:hover {
+    opacity: 0.5;
+    filter: invert(85%) sepia(3%) saturate(1933%) hue-rotate(323deg) brightness(107%) contrast(90%);
+    /* based off var(--ctp-frappe-rosewater) */
 }

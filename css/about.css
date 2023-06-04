@@ -48,8 +48,7 @@ main {
     }
 
     nav ul a {
-        border-right: none;
-        border-left: var(--border);
+        border-right: none !important;
     }
 }
 @media only screen and (min-width: 1400px) {

@@ -168,6 +168,9 @@ nav ul {
 nav a {
     text-decoration: none;
     padding: 0rem 1rem;
+}
+
+nav ul:not(.contact) a {
     border-right: var(--border);
 }
 
