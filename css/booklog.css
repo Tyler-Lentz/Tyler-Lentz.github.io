@@ -1,0 +1,15 @@
+@import url(page.css);
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    border: var(--border);
+}
+
+th, td {
+    padding: 1em;
+}
