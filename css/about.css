@@ -51,7 +51,11 @@ main {
         border-right: none;
         border-left: var(--border);
     }
-
+}
+@media only screen and (min-width: 1400px) {
+    p {
+        max-width: 50vw;
+    }
 }
 
 img {
@@ -82,7 +86,6 @@ img.hidden {
 p {
     margin: 2rem;
     padding: 1rem;
-    max-width: 50vw;
 }
 
 ul.classlist {
