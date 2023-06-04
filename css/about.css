@@ -84,7 +84,7 @@ p {
     max-width: 50vw;
 }
 
-p + ul {
+ul.classlist {
     margin: auto;
     width: fit-content;
 }
@@ -92,4 +92,21 @@ p + ul {
 section {
     background-color: var(--ctp-frappe-crust);
     width: 100%;
+}
+
+/* Images in slide-gallery */
+
+slide-gallery figure {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+slide-gallery figcaption {
+    margin-top: 1rem;
+}
+
+slide-gallery img {
+    margin: auto;
 }

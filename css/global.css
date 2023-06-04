@@ -121,6 +121,10 @@ label {
     color: var(--ctp-frappe-base);
 }
 
+hr {
+    border-color: var(--ctp-frappe-blue);
+}
+
 /* ======================
     My CSS Variables 
    ====================== */ 

@@ -14,7 +14,7 @@ class PageSplitter extends HTMLElement {
 
         for (const elem of this.gallery.children) {
             let current = elem.assignedElements()[0];
-            current.style = "min-height: 100vh";
+            current.style = "min-height: 100vh;";
         }
 
         document.addEventListener('keydown', (e) => {

@@ -16,16 +16,25 @@ class SlideGallery extends HTMLElement {
 
         this.#setClasses();
 
+        // helper function from https://stackoverflow.com/questions/5353934/check-if-element-is-visible-on-screen
+        function checkVisible(elm) {
+            let rect = elm.getBoundingClientRect();
+            let viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+            return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
+        }
+
         // Set up keyboard navigation
         document.addEventListener('keydown', (e) => {
-            if (e.key === "ArrowRight") {
-                e.preventDefault();
-                this.#scroll("right");
-                this.rightButton.classList.add("active");
-            } else if (e.key === "ArrowLeft") {
-                e.preventDefault();
-                this.#scroll("left");
-                this.leftButton.classList.add("active");
+            if (checkVisible(this)) {
+                if (e.key === "ArrowRight") {
+                    e.preventDefault();
+                    this.#scroll("right");
+                    this.rightButton.classList.add("active");
+                } else if (e.key === "ArrowLeft") {
+                    e.preventDefault();
+                    this.#scroll("left");
+                    this.leftButton.classList.add("active");
+                }
             }
         });
 
@@ -93,8 +102,6 @@ class SlideGallery extends HTMLElement {
 
                     display: grid;
 
-                    border-left: var(--border);
-                    border-right: var(--border);
                     padding: 0 3em;
                 }
 
