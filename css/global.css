@@ -1,4 +1,4 @@
-@import "./catppuccin.css";
+@import url(catppuccin.css);
 
 /* ====================================================================
     CSS Reset From https://andy-bell.co.uk/a-modern-css-reset/ 

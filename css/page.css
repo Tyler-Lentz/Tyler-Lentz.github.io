@@ -1,0 +1,59 @@
+@import url(global.css);
+
+h1, h2 {
+    text-align: center;
+    margin: 0.5rem;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    background-color: var(--ctp-frappe-crust);
+}
+
+@media only screen and (min-width: 1600px) {
+    body {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+    }
+
+    header {
+        position: sticky;
+        top: 1em;
+        text-align: left;
+        align-self: flex-start;
+        width: 10vw;
+    }
+
+    main {
+        width: 90vw;
+    }
+    
+    header h1 {
+        text-align: left;
+        margin-left: 1em;
+    }
+
+    nav {
+        display: block; /* turn off flexbox centering above, so it is aligned left */
+    }
+
+    nav ul {
+        flex-direction: column; /* orient vertically to fit in sidebar */
+    }
+
+    nav ul a {
+        border-right: none !important;
+    }
+}
+@media only screen and (min-width: 1400px) {
+    p {
+        max-width: 50vw;
+    }
+}

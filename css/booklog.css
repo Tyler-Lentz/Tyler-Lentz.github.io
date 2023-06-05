@@ -1,0 +1,88 @@
+@import url(page.css);
+
+table {
+    /* table-layout: fixed; */
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tbody {
+    background-color: var(--ctp-frappe-crust);
+}
+
+th {
+    position: sticky;
+    top: 0;
+    background-color: var(--ctp-frappe-mantle);
+
+}
+
+th, td {
+    padding: 0.5rem;
+}
+
+input.search {
+    width: 100%;
+    outline: 0;
+    border: 0;
+    caret-color: var(--ctp-frappe-crust);
+    color: var(--ctp-frappe-crust);
+    background-color: var(--ctp-frappe-overlay2);
+}
+
+input.search::placeholder {
+    color: var(--ctp-frappe-crust);
+}
+
+.title {
+    color: var(--ctp-frappe-sapphire);
+}
+
+.series {
+    color: var(--ctp-frappe-green);
+}
+
+.world {
+    color: var(--ctp-frappe-green);
+}
+
+.author {
+    color: var(--ctp-frappe-sapphire);
+}
+
+.words {
+}
+
+.start {
+    color: var(--ctp-frappe-flamingo);
+}
+
+.finish {
+    color: var(--ctp-frappe-flamingo);
+}
+
+.notes {
+
+}
+
+.selected {
+    background-color: var(--ctp-frappe-overlay1);
+    color: var(--ctp-frappe-crust)
+}
+
+td:hover {
+    background-color: var(--ctp-frappe-overlay2);
+    color: var(--ctp-frappe-crust)
+}
+
+#num-hits-container {
+    text-align: center;
+}
+
+#num-hits.has-hits {
+    color: var(--ctp-frappe-green);
+}
+
+#num-hits.no-hits {
+    color: var(--ctp-frappe-red);
+}
