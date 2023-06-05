@@ -51,3 +51,13 @@ th, td {
 .notes {
 
 }
+
+.selected {
+    background-color: var(--ctp-frappe-overlay1);
+    color: var(--ctp-frappe-crust)
+}
+
+td:hover {
+    background-color: var(--ctp-frappe-overlay2);
+    color: var(--ctp-frappe-crust)
+}

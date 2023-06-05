@@ -8,6 +8,46 @@
 
     <link rel="stylesheet" media="screen" href="css/booklog.css">
     <script async>
+        let wordToTD = new Map();
+        function addWord(td) {
+            let word = td.textContent.toLowerCase();
+            if (word === "") {
+                return;
+            }
+
+            if (wordToTD.has(word)) {
+                wordToTD.get(word).push(td);
+            } else {
+                wordToTD.set(word, [td]);
+            }
+        }
+        
+        function setupClickListener(td) {
+            td.addEventListener("click", (e) => {
+                // If already selected, set flag to only unselect
+                let onlyUnselect = false;
+                if (td.classList.contains("selected")) {
+                    onlyUnselect = true;
+                }
+
+                // Clear old selection
+                for (const td of document.querySelectorAll(".selected")) {
+                    td.classList.remove("selected");
+                }
+
+                if (onlyUnselect) {
+                    return;
+                }
+
+                // Set new selection
+                let word = td.textContent.toLowerCase();
+                let tds = wordToTD.get(word);
+                for (const td of tds) {
+                    td.classList.add("selected");
+                }
+            });
+        }
+
         function setDataClass(index, td) {
             switch (index) {
                 case 0:
@@ -68,6 +108,8 @@
                     let td = document.createElement("td");
                     td.textContent = cell;
                     setDataClass(i, td);
+                    addWord(td);
+                    setupClickListener(td);
                     row.appendChild(td);
                     i++;
                 }
