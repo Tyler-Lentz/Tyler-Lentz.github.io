@@ -1,15 +1,53 @@
 @import url(page.css);
 
 table {
-    table-layout: fixed;
+    /* table-layout: fixed; */
     width: 100%;
     border-collapse: collapse;
 }
 
+tbody {
+    background-color: var(--ctp-frappe-crust);
+}
+
 th {
-    border: var(--border);
+    position: sticky;
+    top: 0;
+    background-color: var(--ctp-frappe-mantle);
+
 }
 
 th, td {
-    padding: 1em;
+    padding: 0.5rem;
+}
+
+.title {
+    color: var(--ctp-frappe-sapphire);
+}
+
+.series {
+    color: var(--ctp-frappe-green);
+}
+
+.world {
+    color: var(--ctp-frappe-green);
+}
+
+.author {
+    color: var(--ctp-frappe-sapphire);
+}
+
+.words {
+}
+
+.start {
+    color: var(--ctp-frappe-flamingo);
+}
+
+.finish {
+    color: var(--ctp-frappe-flamingo);
+}
+
+.notes {
+
 }

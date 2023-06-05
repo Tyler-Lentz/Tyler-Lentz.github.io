@@ -7,6 +7,100 @@
     <title>Tyler Lentz</title>
 
     <link rel="stylesheet" media="screen" href="css/booklog.css">
+    <script async>
+        function setDataClass(index, td) {
+            switch (index) {
+                case 0:
+                    td.classList.add("title");
+                    break;
+                case 1:
+                    td.classList.add("series");
+                    break;
+                case 2:
+                    td.classList.add("world");
+                    break;
+                case 3:
+                    td.classList.add("author");
+                    break;
+                case 4:
+                    td.classList.add("words");
+                    break;
+                case 5:
+                    td.classList.add("start");
+                    break;
+                case 6:
+                    td.classList.add("finish");
+                    break;
+                case 7:
+                    td.classList.add("notes");
+                    break;
+            }
+        }
+
+        function makeTableHeader(firstLine) {
+            let headings = firstLine.split("\t");
+
+            let header = document.createElement("thead");
+            let row = document.createElement("tr");
+            for (const heading of headings) {
+                let th = document.createElement("th");
+                th.textContent = heading;
+                th.scope = "col";
+                row.appendChild(th);
+            }
+
+            header.appendChild(row);
+            return header;
+        }
+
+        function makeTableBody(lines) {
+            let body;
+
+            lines = lines.reverse();
+            
+            let tbody = document.createElement("tbody");
+            for (const line of lines) {
+                let row = document.createElement("tr");
+                let cells = line.split("\t");
+
+                let i = 0;
+                for (const cell of cells) {
+                    let td = document.createElement("td");
+                    td.textContent = cell;
+                    setDataClass(i, td);
+                    row.appendChild(td);
+                    i++;
+                }
+
+                tbody.appendChild(row);
+            }
+
+            return tbody;
+        }
+
+        function parseCSV(text) {
+            const lines = text.split("\n");
+
+            let table = document.createElement('table');
+            table.appendChild(makeTableHeader(lines.shift()));
+            table.appendChild(makeTableBody(lines));
+
+            return table;
+        }
+
+        fetch("/data/books.tsv")
+            .then(r => r.text())
+            .then(text => {
+                let table = parseCSV(text);
+                if (document.readyState === "loading") {
+                    document.addEventListener("DOMContentLoaded", () => {
+                        document.querySelector('main').appendChild(table);
+                    });
+                } else {
+                    document.querySelector('main').appendChild(table);
+                }
+            });
+    </script>
 </head>
 <body>
     <header>
@@ -20,32 +114,6 @@
         </nav>
     </header>
     <main>
-        <table>
-            <thead>
-                <tr>
-                    <th scope="col">Title</th>
-                    <th scope="col">Series</th>
-                    <th scope="col">World</th>
-                    <th scopr="col">Author</th>
-                    <th scope="col">Words</th>
-                    <th scope="col">Start</th>
-                    <th scope="col">Finish</th>
-                    <th scope="col">Notes</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>The Eye of the World</td>
-                    <td>The Wheel of Time</td>
-                    <td>The Westlands</td>
-                    <td>Robert Jordan</td>
-                    <td>305,902</td>
-                    <td>2022-09-23</td>
-                    <td>Unknown</td>
-                    <td>NA</td>
-                </tr>
-            </tbody>
-        </table>
     </main>
 </body>
 </html>
