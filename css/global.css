@@ -96,7 +96,7 @@ a:visited {
     color: var(--ctp-frappe-blue);
 }
 
-a:hover {
+a:hover, a.current {
     color: var(--ctp-frappe-rosewater);
 }
 
