@@ -21,6 +21,19 @@ th, td {
     padding: 0.5rem;
 }
 
+input.search {
+    width: 100%;
+    outline: 0;
+    border: 0;
+    caret-color: var(--ctp-frappe-crust);
+    color: var(--ctp-frappe-crust);
+    background-color: var(--ctp-frappe-overlay2);
+}
+
+input.search::placeholder {
+    color: var(--ctp-frappe-crust);
+}
+
 .title {
     color: var(--ctp-frappe-sapphire);
 }
@@ -60,4 +73,16 @@ th, td {
 td:hover {
     background-color: var(--ctp-frappe-overlay2);
     color: var(--ctp-frappe-crust)
+}
+
+#num-hits-container {
+    text-align: center;
+}
+
+#num-hits.has-hits {
+    color: var(--ctp-frappe-green);
+}
+
+#num-hits.no-hits {
+    color: var(--ctp-frappe-red);
 }

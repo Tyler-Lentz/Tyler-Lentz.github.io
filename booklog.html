@@ -31,9 +31,7 @@
                 }
 
                 // Clear old selection
-                for (const td of document.querySelectorAll(".selected")) {
-                    td.classList.remove("selected");
-                }
+                removeAllSelections();
 
                 if (onlyUnselect) {
                     return;
@@ -41,11 +39,60 @@
 
                 // Set new selection
                 let word = td.textContent.toLowerCase();
-                let tds = wordToTD.get(word);
-                for (const td of tds) {
-                    td.classList.add("selected");
-                }
+                setSelection(word);
             });
+        }
+
+        function removeAllSelections() {
+            for (const td of document.querySelectorAll(".selected")) {
+                td.classList.remove("selected");
+            }
+
+            clearNumHits();
+        }
+
+        function clearNumHits() {
+            let elem = document.getElementById("num-hits");
+            elem.innerText = "";
+            elem.classList.remove("has-hits");
+            elem.classList.remove("no-hits");
+        }
+
+        function setNumHits(numHits) {
+            let elem = document.getElementById("num-hits");
+            elem.innerText = numHits;
+            if (numHits > 0) {
+                elem.classList.add("has-hits");
+                elem.classList.remove("no-hits");
+            } else {
+                elem.classList.remove("has-hits");
+                elem.classList.add("no-hits");
+            }
+        }
+
+        function setSelection(word) {
+            let tds = wordToTD.get(word);
+            let numHits = 0;
+            for (const td of tds) {
+                td.classList.add("selected");
+                numHits++;
+            }
+
+            setNumHits(numHits);
+        }
+
+        function setSelectionSubstr(query) {
+            let numHits = 0;
+            for (const words of wordToTD.keys()) {
+                if (words.includes(query)) {
+                    for (const td of wordToTD.get(words)) {
+                        td.classList.add("selected");
+                        numHits++;
+                    }
+                }
+            }
+
+            setNumHits(numHits);
         }
 
         function setDataClass(index, td) {
@@ -142,6 +189,36 @@
                     document.querySelector('main').appendChild(table);
                 }
             });
+
+        // Handle search
+        document.addEventListener("DOMContentLoaded", () => {
+            let search = document.querySelector(".search");
+            search.addEventListener("keyup", (e) => {
+                let query = search.value.toLowerCase();
+
+                if (query === "" || query === " ") {
+                    removeAllSelections();
+                    return;
+                }
+            });
+
+            search.addEventListener("keydown", (e) => {
+                let query = search.value.toLowerCase();
+                if (e.key == "Backspace") {
+                    query = query.slice(0, -1);
+                } else if (e.key.length === 1) {
+                    query += e.key.toLowerCase();
+                }
+
+                removeAllSelections();
+
+                if (query === "" || query === " ") {
+                    return;
+                }
+                
+                setSelectionSubstr(query);
+            });
+        });
     </script>
 </head>
 <body>
@@ -154,6 +231,8 @@
                 <li><a href="projects.html">Projects</a></li>
             </ul>
         </nav>
+        <input class="search" type="text" placeholder="Search">
+        <p id="num-hits-container">Hits: <span id="num-hits"></span></p>
     </header>
     <main>
     </main>

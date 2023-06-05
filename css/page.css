@@ -27,7 +27,6 @@ main {
         position: sticky;
         top: 1em;
         text-align: left;
-        margin-left: 1em;
         align-self: flex-start;
         width: 10vw;
     }
