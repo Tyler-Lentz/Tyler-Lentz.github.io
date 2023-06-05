@@ -181,12 +181,19 @@
             .then(r => r.text())
             .then(text => {
                 let table = parseCSV(text);
-                if (document.readyState === "loading") {
-                    document.addEventListener("DOMContentLoaded", () => {
-                        document.querySelector('main').appendChild(table);
-                    });
-                } else {
+                function loadAction() {
                     document.querySelector('main').appendChild(table);
+                    setTimeout(() => {
+                        document.querySelectorAll('td').forEach(td => {
+                            td.classList.add("loaded");
+                        });
+                    }, 100);
+                }
+
+                if (document.readyState === "loading") {
+                    document.addEventListener("DOMContentLoaded", () => {loadAction()});
+                } else {
+                    loadAction();
                 }
             });
 

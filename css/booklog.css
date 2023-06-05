@@ -30,6 +30,15 @@ input.search {
     background-color: var(--ctp-frappe-overlay2);
 }
 
+td {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+
+td.loaded {
+    opacity: 1;
+}
+
 input.search::placeholder {
     color: var(--ctp-frappe-crust);
 }
