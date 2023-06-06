@@ -1,1 +1,19 @@
 @import url(page.css);
+
+/* On projects page, the text wrapping is different than on the about page,
+   so some more specific rules to make the image not look dumb */
+@media only screen and (max-width: 900px) {
+    img.left {
+        float: none;
+        margin-right: 0;
+    }
+
+    img.right {
+        float: none;
+        margin-left: 0;
+    }
+
+    img {
+        margin: auto;
+    }
+}

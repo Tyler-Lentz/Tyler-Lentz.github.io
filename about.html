@@ -9,17 +9,7 @@
     <link rel="stylesheet" media="screen" href="css/about.css">
     <script type="module" src="js/page-splitter.js"></script>
     <script type="module" src="js/slide-gallery.js"></script>
-    <script>
-        // hack to fix images flickering for a second before being moved correctly
-        // in my-gallery custom component
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.querySelectorAll('img').forEach((img) => {
-                    img.classList.remove('hidden');
-                });
-            }, 100);
-        });
-    </script>
+    <script typy="module" src="js/pageloadfade.js"></script>
 </head>
 <body>
     <header>
@@ -34,11 +24,11 @@
         </nav>
     </header>
     <main>
-        <page-splitter>
+        <page-splitter class="hidden">
             <section slot="1">
                 <h2>General</h2>
 
-                <img class="left hidden" 
+                <img class="left" 
                      src="images/about/tyler.png" 
                      alt="Me in a suit." 
                      width="289" 
@@ -70,7 +60,7 @@
             <section slot="2">
                 <h2>Academics</h2>
 
-                <img class="center hidden" 
+                <img class="center" 
                      src="images/about/2022-competition.jpg" 
                      alt="TUAS 2022 5th place team." 
                      width="646" 
