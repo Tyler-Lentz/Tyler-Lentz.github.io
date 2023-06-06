@@ -38,6 +38,10 @@ img.right {
     margin-left: 3rem;
 }
 
+img.center {
+    margin: auto;
+}
+
 /* Allow page fade-in on load */
 page-splitter {
     transition: opacity 0.5s ease-in;

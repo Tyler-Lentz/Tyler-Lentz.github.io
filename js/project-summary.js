@@ -19,7 +19,7 @@ class ProjectSummary extends HTMLElement {
     #makeHTML() {
 
         // Language icons
-        let languages = this.getAttribute("language");
+        let languages = this.getAttribute("languages");
         if (languages === null) {
             languages = "";
         }
@@ -32,10 +32,17 @@ class ProjectSummary extends HTMLElement {
         } else {
             github = `<a href="${github}"><img width="${this.size}" height="${this.size}" src="./images/index/github.svg" alt="github"></a>`;
         }
+        let tags = this.getAttribute("tags");
+        if (tags === null) {
+            tags = "";
+        }
+        tags = tags.split(" ").map((tag) => `<span class="tag">${tag}</span>`).join("");
+
 
         return `
             ${github}
             ${languages}
+            ${tags}
         `;
     }
 
@@ -47,6 +54,7 @@ class ProjectSummary extends HTMLElement {
                     display: flex;
                     flex-direction: row;
                     justify-content: center;
+                    flex-wrap: wrap;
                     align-items: center;
                     width: fit-content;
                     margin: auto;
@@ -57,11 +65,11 @@ class ProjectSummary extends HTMLElement {
                     margin-right: 1.0em;
                 }
 
-                :host > img {
+                :host > * {
                     margin-right: 0.5em;
                 }
 
-                :host > img:last-child {
+                :host > *:last-child {
                     margin-right: 0;
                 }
 
@@ -69,6 +77,19 @@ class ProjectSummary extends HTMLElement {
                     opacity: 0.5;
                     filter: invert(85%) sepia(3%) saturate(1933%) hue-rotate(323deg) brightness(107%) contrast(90%);
                     /* based off var(--ctp-frappe-rosewater) */
+                }
+
+                span.tag {
+                    color: var(--ctp-frappe-rosewater);
+                }
+
+                span.tag {
+                    border-right: 1px solid white;
+                    padding-right: 0.5em;
+                }
+
+                span.tag:last-child {
+                    border-right: none;
                 }
             </style>
         `;
