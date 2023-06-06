@@ -7,6 +7,8 @@
     <title>Tyler Lentz</title>
 
     <link rel="stylesheet" media="screen" href="css/about.css">
+    <script type="module" src="js/page-splitter.js"></script>
+    <script type="module" src="js/slide-gallery.js"></script>
 </head>
 <body>
     <header>
@@ -21,7 +23,35 @@
         </nav>
     </header>
     <main>
-        <p>I am still developing this page.</p>
+        <page-splitter>
+            <section slot="1">
+                <h2>Triton UAS</h2>
+                <p>
+                    I joined Triton UAS in the fall quarter of my freshman year. By the summer of my sophomore year, I had become
+                    one of two leads of the software subteam. This means that I was (and currently still am) responsible for all 
+                    of the software in our plane that contributes to competing in the AUVSI SUAS competition.
+                </p>
+                <p>
+                    Essentially, the competition requires us to build a plane that can autonomously fly a mission. The mission includes
+                    waypoints, a search area, and drop targets. The plane must be able to navigate through the waypoints, cover the search
+                    area while taking pictures and identifying targets, and drop a specific payload on a corresponding target that we identify.
+                </p>
+                <p>
+                    All of the main projects I have contributed to are in the gallery below.
+                </p>
+                <slide-gallery>
+                    <div slot="1">
+
+                    </div>
+                </slide-gallery>
+            </section>
+            <section slot="2">
+                <h2>Personal Projects</h2>
+            </section>
+            <section slot="3">
+                <h2>Class Projects</h2>
+            </section>
+        </page-splitter> 
     </main>
 </body>
 </html>
