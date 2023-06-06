@@ -89,16 +89,11 @@ class ProjectSummary extends HTMLElement {
                 }
 
                 span.tag {
-                    color: var(--ctp-frappe-rosewater);
+                    color: var(--ctp-frappe-green);
                 }
 
                 span.tag {
-                    border-right: 1px solid white;
                     padding-right: 0.5em;
-                }
-
-                span.tag:last-child {
-                    border-right: none;
                 }
 
                 img:is(:hover, :focus) + div > span.tooltip {
@@ -111,7 +106,7 @@ class ProjectSummary extends HTMLElement {
                     transition: opacity 0.3s ease-in-out;
                     display: block;
                     background: var(--ctp-frappe-overlay0);
-                    color: var(--ctp-frappe-rosewater);
+                    color: var(--ctp-frappe-green);
                     padding: 0.5em;
                     position: absolute;
                     z-index: -1;

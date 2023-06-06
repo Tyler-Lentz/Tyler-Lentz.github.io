@@ -7,10 +7,15 @@
     <title>Tyler Lentz</title>
 
     <link rel="stylesheet" media="screen" href="css/projects.css">
-    <script type="module" src="js/page-splitter.js"></script>
-    <script type="module" src="js/slide-gallery.js"></script>
-    <script type="module" src="js/project-summary.js"></script>
-    <script type="module" src="js/pageloadfade.js"></script>
+    <!-- Components -->
+    <script async type="module" src="js/page-splitter.js"></script>
+    <script async type="module" src="js/slide-gallery.js"></script>
+    <script async type="module" src="js/accordion-container.js"></script>
+    <script async type="module" src="js/project-summary.js"></script>
+    <!-- Do fade effect on page load -->
+    <script async type="module" src="js/pageloadfade.js"></script>
+    <!-- Pull Summary info into the output -->
+    <script async type="module" src="js/projects.js"></script>
 </head>
 <body>
     <header>
@@ -27,6 +32,13 @@
     <main>
         <page-splitter class="hidden">
             <section slot="1">
+                <h2>Overview</h2>
+                <!-- Put statistics about projects here -->
+                <accordion-container>
+                    <output slot="hidden" id="overview-output"></output>
+                </accordion-container>
+            </section>
+            <section slot="2">
                 <h2>Triton UAS</h2>
                 <slide-gallery>
                     <div slot="1">
@@ -48,10 +60,6 @@
                             <span class="highlight">waypoints</span>, a <span class="highlight">search area</span>, and <span class="highlight">drop targets.</span> 
                             The plane must be able to navigate through the waypoints, cover the search
                             area while taking pictures and identifying targets, and drop a specific payload on a corresponding target that we identify.
-                        </p>
-                        <p>
-                            All of the main projects I have contributed to are in this gallery. Either click the arrows or press the arrow keys on
-                            your keyboard to navigate through the slides.
                         </p>
                     </div>
                     <div slot="2">
@@ -77,19 +85,19 @@
                         <h3><span class="highlight">Hub:</span> Ground Control Station Backend</h3>
                         <project-summary 
                             languages="go docker"
-                            tags="backend project-lead HTTP REST">
+                            tags="backend gin project-lead HTTP REST">
                         </project-summary>
                     </div>
                     <div slot="4">
                         <h3>RRT* Static Path Planning</h3>
                         <project-summary 
                             languages="python" 
-                            tags="rrt* project-lead">
+                            tags="rrt* flask project-lead">
                         </project-summary>
                     </div>
                 </slide-gallery>
             </section>
-            <section slot="2">
+            <section slot="3">
                 <h2>Personal Projects</h2>
                 <slide-gallery>
                     <div slot="1">
@@ -118,7 +126,7 @@
                     </div>
                 </slide-gallery>
             </section>
-            <section slot="3">
+            <section slot="4">
                 <h2>Class Projects</h2>
                 <slide-gallery>
                     <div slot="1">
