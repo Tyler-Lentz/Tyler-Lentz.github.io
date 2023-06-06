@@ -1,6 +1,6 @@
 @import url(global.css);
 
-h1, h2 {
+h1, h2, h3 {
     text-align: center;
     margin: 0.5rem;
 }
@@ -14,6 +14,46 @@ nav {
 
 main {
     background-color: var(--ctp-frappe-crust);
+}
+
+hr {
+    border: 0;
+    margin: 0 0 0.5em 0;
+    height: 1px;
+    background: var(--ctp-frappe-blue);
+}
+
+img {
+    border-radius: 1rem;
+    margin: 1rem;
+}
+
+img.left {
+    float: left;
+    margin-right: 3rem;
+}
+
+img.right {
+    float: right;
+    margin-left: 3rem;
+}
+
+img.center {
+    margin: auto;
+}
+
+/* Allow page fade-in on load */
+page-splitter {
+    transition: opacity 0.5s ease-in;
+}
+.hidden {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+
+p {
+    margin: 2rem;
+    padding: 1rem;
 }
 
 @media only screen and (min-width: 1600px) {
@@ -31,7 +71,7 @@ main {
     }
 
     main {
-        width: 90vw;
+        width: 100%;
     }
     
     header h1 {
@@ -51,8 +91,18 @@ main {
         border-right: none !important;
     }
 }
+
+/* Restrict paragraph width on larger screens */
 @media only screen and (min-width: 1400px) {
     p {
         max-width: 50vw;
+    }
+}
+
+/* remove Paragraph margins on small devices, and turn off float on images
+   because leads to strange look */
+@media only screen and (max-width: 900px) {
+    p {
+        margin: 0;
     }
 }

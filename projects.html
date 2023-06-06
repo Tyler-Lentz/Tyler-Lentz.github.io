@@ -6,7 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tyler Lentz</title>
 
-    <link rel="stylesheet" media="screen" href="css/about.css">
+    <link rel="stylesheet" media="screen" href="css/projects.css">
+    <!-- Components -->
+    <script async type="module" src="js/page-splitter.js"></script>
+    <script async type="module" src="js/slide-gallery.js"></script>
+    <script async type="module" src="js/accordion-container.js"></script>
+    <script async type="module" src="js/project-summary.js"></script>
+    <!-- Do fade effect on page load -->
+    <script async type="module" src="js/pageloadfade.js"></script>
+    <!-- Pull Summary info into the output -->
+    <script async type="module" src="js/projects.js"></script>
 </head>
 <body>
     <header>
@@ -21,7 +30,146 @@
         </nav>
     </header>
     <main>
-        <p>I am still developing this page.</p>
+        <page-splitter class="hidden">
+            <section slot="1">
+                <h2>Overview</h2>
+                <p style="color: yellow; text-decoration: underline;">Note: this page is currently under construction.</p>
+                <p>
+                    This page is an overview of all of the most relevant projects I've worked on. I have divided them into three categories:
+                    <span class="highlight">Triton UAS</span>, <span class="highlight">Personal</span>, and <span class="highlight">School</span>.
+                </p>
+                <p>
+                    The <span class="highlight">Triton UAS</span> section contains all of the projects I've worked on in my time as a part
+                    of the club. The <span class="highlight">Personal</span> section contains all of the projects I've worked on in my free time.
+                    And lastly, the <span class="highlight">School</span> section contains all of the projects I've worked on as assignments
+                    for classes.
+                </p>
+                <p>
+                    Below, you can expand out a summary of all the keywords I've used to describe each project. Clicking on a keyword will
+                    expand out a list of all the projects that have that keyword, and from there clicking on a project will take you to 
+                    a page with more information about that project.
+                </p>
+                <!-- Put statistics about projects here -->
+                <accordion-container>
+                    <output slot="hidden" id="overview-output"></output>
+                </accordion-container>
+            </section>
+            <section slot="2">
+                <h2>Triton UAS Projects</h2>
+                <slide-gallery>
+                    <div slot="1">
+                        <img 
+                            class = "right"
+                            src="images/projects/toothless-plane.jpg" 
+                            alt="Picture of Toothless, a plane we made at TUAS"
+                            width="403"
+                            height="302"
+                            >
+                        <h3>Overview</h3>
+                        <p>
+                            I joined <span class="highlight">Triton UAS</span> in the fall quarter of my freshman year. By the summer of my sophomore year, I had become
+                            one of two leads of the software subteam. This means that I was (and currently still am) responsible for all 
+                            of the software in our plane that contributes to competing in the <span class="highlight">AUVSI SUAS competition.</span>
+                        </p>
+                        <p>
+                            Essentially, the competition requires us to build a plane that can autonomously fly a mission. The mission includes
+                            <span class="highlight">waypoints</span>, a <span class="highlight">search area</span>, and <span class="highlight">drop targets.</span> 
+                            The plane must be able to navigate through the waypoints, cover the search
+                            area while taking pictures and identifying targets, and drop a specific payload on a corresponding target that we identify.
+                        </p>
+                    </div>
+                    <div slot="2">
+                        <h3><span class="highlight">Houston:</span> Ground Control Station Frontend</h3>
+                        <project-summary 
+                            languages="javascript css html"
+                            tags="vanilla-js web-dev project-manager">
+                        </project-summary>
+                        <p>
+                            The frontend of our ground control station, dubbed <span class="highlight">Houston</span>, is a web app that allows us to 
+                            monitor the status of the plane while in flight and change any parameters we need to. 
+                            It is currently built in Vanilla <span class="highlight">JS/CSS/HTML</span>, but we plan to migrate it to a framework 
+                            in the future to make it easier to develop.
+                        </p>
+                        <p>
+                            I was the main contributor for this project.
+                        </p>
+                        <p>
+                            TODO: images here
+                        </p>
+                    </div>
+                    <div slot="3">
+                        <h3><span class="highlight">Hub:</span> Ground Control Station Backend</h3>
+                        <project-summary 
+                            languages="go docker"
+                            tags="backend gin project-lead HTTP REST">
+                        </project-summary>
+                    </div>
+                    <div slot="4">
+                        <h3>RRT* Static Path Planning</h3>
+                        <project-summary 
+                            languages="python" 
+                            tags="rrt* flask project-lead">
+                        </project-summary>
+                    </div>
+                </slide-gallery>
+            </section>
+            <section slot="3">
+                <h2>Personal Projects</h2>
+                <slide-gallery>
+                    <div slot="1">
+                        <h3>Tyde</h3>
+                        <project-summary 
+                            github="https://github.com/Tyler-Lentz/tyde" 
+                            languages="svelte rust tauri typescript html css"
+                            tags="solo-project IDE web-app">
+                        </project-summary>
+                    </div>
+                    <div slot="2">
+                        <h3><a href="/">tyler-lentz.github.io</a></h3>
+                        <project-summary 
+                            github="https://github.com/Tyler-Lentz/Tyler-Lentz.github.io" 
+                            languages="javascript css html"
+                            tags="vanilla-js web-dev solo-project">
+                        </project-summary>
+                    </div>
+                    <div slot="3">
+                        <h3>Chrono Defenders</h3>
+                        <project-summary 
+                            github="https://github.com/Tyler-Lentz/ChronoDefenders" 
+                            languages="cpp"
+                            tags="video-game text-based solo-project">
+                        </project-summary>
+                    </div>
+                </slide-gallery>
+            </section>
+            <section slot="4">
+                <h2>School Projects</h2>
+                <slide-gallery>
+                    <div slot="1">
+                        <h3><span class="highlight">CSE 110:</span> Birds of a Feather</h3>
+                        <project-summary 
+                            github="https://github.com/CSE-110-Winter-2022/birds-of-a-feather-team-14"
+                            languages="android android-studio java"
+                            tags="agile-development group-project">
+                        </project-summary>
+                    </div>
+                    <div slot="2">
+                        <h3><span class="highlight">CSE 131:</span> "Snek" Language Compiler</h3>
+                        <project-summary
+                            languages="rust"
+                            tags="compiler solo-project">
+                        </project-summary>
+                    </div>
+                    <div slot="3">
+                        <h3><span class="highlight">CSE 190:</span> IDLE GPT</h3>
+                        <project-summary
+                            languages="python"
+                            tags="tkinter group-project large-codebase">
+                        </project-summary>
+                    </div>
+                </slide-gallery>
+            </section>
+        </page-splitter> 
     </main>
 </body>
 </html>

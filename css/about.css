@@ -1,35 +1,5 @@
 @import url(page.css);
 
-img {
-    border-radius: 1rem;
-    margin: 1rem;
-    opacity: 1;
-    transition: opacity 0.5s ease-in;
-}
-
-img.left {
-    float: left;
-    margin-right: 3rem;
-}
-
-img.right {
-    float: right;
-    margin-left: 3rem;
-}
-
-img.center {
-    margin: auto;
-}
-
-img.hidden {
-    opacity: 0;
-}
-
-p {
-    margin: 2rem;
-    padding: 1rem;
-}
-
 ul.classlist {
     margin: auto;
     width: fit-content;
@@ -47,6 +17,7 @@ slide-gallery figure {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: left;
 }
 
 slide-gallery figcaption {
