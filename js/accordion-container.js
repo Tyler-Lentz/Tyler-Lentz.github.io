@@ -14,7 +14,7 @@ class AccordionContainer extends HTMLElement {
             let elem  = slot.assignedElements()[0];
 
             if (elem.style.maxHeight === '') {
-                elem.style.maxHeight = '50em'; // hard coded max height, probably should figure out a better way to determine this
+                elem.style.maxHeight = '30em'; // hard coded max height, probably should figure out a better way to determine this
                 arrow.classList.remove('arrow-down');
                 arrow.classList.add('arrow-up');
             } else {
