@@ -13,7 +13,12 @@ class ProjectSummary extends HTMLElement {
     // Returns a src for img tag based on language
     // Icons sourced from https://devicon.dev/
     #getIconFromLanguage(language) {
-        return `<img width="${this.size}" height="${this.size}" src="./images/projects/icons/${language}.svg" alt="${language}">`;
+        return `
+            <img width="${this.size}" height="${this.size}" src="./images/projects/icons/${language}.svg" alt="${language}">
+            <div>
+                <span class="tooltip">${language}</span>
+            </div>
+        `;
     }
 
     #makeHTML() {
@@ -30,7 +35,11 @@ class ProjectSummary extends HTMLElement {
         if (github === null) {
             github = "";
         } else {
-            github = `<a href="${github}"><img width="${this.size}" height="${this.size}" src="./images/index/github.svg" alt="github"></a>`;
+            github = `
+                <a href="${github}">
+                    <img width="${this.size}" height="${this.size}" src="./images/index/github.svg" alt="github">
+                </a>
+            `;
         }
         let tags = this.getAttribute("tags");
         if (tags === null) {
@@ -90,6 +99,26 @@ class ProjectSummary extends HTMLElement {
 
                 span.tag:last-child {
                     border-right: none;
+                }
+
+                img:is(:hover, :focus) + div > span.tooltip {
+                    opacity: 1;
+                    z-index: 10;
+                }
+
+                span.tooltip {
+                    opacity: 0;
+                    transition: opacity 0.3s ease-in-out;
+                    display: block;
+                    background: var(--ctp-frappe-overlay0);
+                    color: var(--ctp-frappe-rosewater);
+                    padding: 0.5em;
+                    position: absolute;
+                    z-index: -1;
+                    top: 0;
+                    border-radius: 1em;
+                    transform: translateX(-4em);
+                    transform: translateY(4em);
                 }
             </style>
         `;
