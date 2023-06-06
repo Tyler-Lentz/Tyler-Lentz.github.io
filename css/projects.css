@@ -17,3 +17,8 @@
         margin: auto;
     }
 }
+
+project-summary {
+    background-color: var(--ctp-frappe-mantle);
+    border-radius: 1em
+}

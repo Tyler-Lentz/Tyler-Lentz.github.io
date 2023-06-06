@@ -9,6 +9,7 @@
     <link rel="stylesheet" media="screen" href="css/projects.css">
     <script type="module" src="js/page-splitter.js"></script>
     <script type="module" src="js/slide-gallery.js"></script>
+    <script type="module" src="js/project-summary.js"></script>
     <script type="module" src="js/pageloadfade.js"></script>
 </head>
 <body>
@@ -54,7 +55,8 @@
                         </p>
                     </div>
                     <div slot="2">
-                        <h3><span class="highlght">Houston</span>: Ground Control Station Frontend</h3>
+                        <h3><span class="highlight">Houston:</span> Ground Control Station Frontend</h3>
+                        <project-summary language="javascript css html"></project-summary>
                         <p>
                             The frontend of our ground control station, dubbed <span class="highlight">Houston</span>, is a web app that allows us to 
                             monitor the status of the plane while in flight and change any parameters we need to. 
@@ -69,10 +71,12 @@
                         </p>
                     </div>
                     <div slot="3">
-                        <h3>Ground Control Station Backend</h3>
+                        <h3><span class="highlight">Hub:</span> Ground Control Station Backend</h3>
+                        <project-summary language="go docker"></project-summary>
                     </div>
                     <div slot="4">
                         <h3>RRT* Static Path Planning</h3>
+                        <project-summary language="python"></project-summary>
                     </div>
                 </slide-gallery>
             </section>
@@ -81,12 +85,24 @@
                 <slide-gallery>
                     <div slot="1">
                         <h3>Tyde</h3>
+                        <project-summary 
+                            github="https://github.com/Tyler-Lentz/tyde" 
+                            language="svelte rust typescript html css">
+                        </project-summary>
                     </div>
                     <div slot="2">
-                        <h3>Chrono Defenders</h3>
+                        <h3><a href="/">tyler-lentz.github.io</a></h3>
+                        <project-summary 
+                            github="https://github.com/Tyler-Lentz/Tyler-Lentz.github.io" 
+                            language="javascript css html">
+                        </project-summary>
                     </div>
                     <div slot="3">
-                        <h3><a href="/">tyler-lentz.github.io</a></h3>
+                        <h3>Chrono Defenders</h3>
+                        <project-summary 
+                            github="https://github.com/Tyler-Lentz/ChronoDefenders" 
+                            language="cpp">
+                        </project-summary>
                     </div>
                 </slide-gallery>
             </section>
@@ -95,12 +111,22 @@
                 <slide-gallery>
                     <div slot="1">
                         <h3>CSE 110: Birds of a Feather</h3>
+                        <project-summary 
+                            github="https://github.com/CSE-110-Winter-2022/birds-of-a-feather-team-14"
+                            language="android android-studio java">
+                        </project-summary>
                     </div>
                     <div slot="2">
                         <h3>CSE 131: "Snek" Language Compiler</h3>
+                        <project-summary
+                            language="rust">
+                        </project-summary>
                     </div>
                     <div slot="3">
                         <h3>CSE 190: IDLE GPT</h3>
+                        <project-summary
+                            language="python">
+                        </project-summary>
                     </div>
                 </slide-gallery>
             </section>
