@@ -27,6 +27,18 @@ class PageSplitter extends HTMLElement {
             }
         });
 
+        document.addEventListener('wheel', (e) => {
+            console.log('wheel')
+            e.preventDefault();
+            if (!this.scrolling) {
+                if (e.deltaY > 0) {
+                    this.#scroll("down");
+                } else if (e.deltaY < 0) {
+                    this.#scroll("up");
+                }
+            }
+        }, {passive: false});
+
         this.prevScroll = null;
 
         this.scrollTimeout = null; // used to detect when scrolling is finished
