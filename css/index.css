@@ -31,7 +31,7 @@ nav {
 }
 
 @media screen and (max-width: 600px) {
-    nav ul {
+    nav ul.site-nav {
         flex-direction: column; /* orient vertically to fit in sidebar */
     }
 
@@ -44,30 +44,6 @@ h1 {
     text-align: center;
 }
 
-h1.cursor::after {
-    content: ' ';
-    white-space: pre;
-    border-left: .125em solid var(--ctp-frappe-rosewater);
-}
-
-h1.cursor[data-flicker]::after {
-    animation: cursorFlicker 1s infinite;
-}
-
-@keyframes cursorFlicker {
-    0% {
-        opacity: 1;
-    }
-    49% {
-        opacity: 1;
-    }
-    50%{
-        opacity: 0;
-    }
-    100% {
-        opacity: 0;
-    }
-}
 
 /* Icons for contact links*/
 img.icon {
