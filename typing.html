@@ -6,18 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tyler Lentz</title>
     
-    <link rel="stylesheet" media="screen" href="css/typing.css">
-    <script async type="module" src="js/typing.js"></script>
+    <link rel="stylesheet" media="screen" href="css/global.css">
+    <script async type="module" src="js/typing-game.js"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        typing-game {
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+    </style>
+    <script>
+        window.addEventListener('load', () => {
+            const typingGame = document.querySelector('typing-game');
+            typingGame.start();
+        });
+    </script>
 </head>
 <body>
-    <main id="game-area">
-        <pre>
-            <output id="prev-words"></output>
-            <output id="word-to-type"></output>
-        </pre>
-    </main>
-    <footer>
-        <output id="typed-word" class="cursor" data-flicker></output>
-    </footer>
+    <typing-game></typing-game>
 </body>
 </html>
