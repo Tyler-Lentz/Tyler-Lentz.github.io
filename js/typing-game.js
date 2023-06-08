@@ -83,12 +83,12 @@ class TypingGame extends HTMLElement {
             let charsCorrect = this.gameContainer.querySelectorAll('typing-letter[correct]').length;
             let charsIncorrect = this.gameContainer.querySelectorAll('typing-letter[incorrect]').length;
             let charsTotal = charsCorrect + charsIncorrect;
-            let accuracy = Math.round(charsCorrect / charsTotal * 100);
+            let accuracy = charsCorrect / charsTotal * 100;
             let wpm = Math.round(charsCorrect / 5 / (time / 60));
 
             this.gameContainer.innerHTML = `
                 <div id="results">
-                    <h1>Results</h1>
+                    <h2>Results</h1>
                     <p>Time: ${time} seconds</p>
                     <p>Characters: ${charsCorrect} correct, ${charsIncorrect} incorrect, ${charsTotal} total</p>
                     <p>Accuracy: ${accuracy}%</p>
@@ -159,7 +159,10 @@ class TypingGame extends HTMLElement {
         let words = ``;
         for (let i = 0; i < amount; i++) {
             const word = this.COMMON_WORDS[Math.floor(Math.random() * this.COMMON_WORDS.length)];
-            words += `<typing-word word="${word}"></typing-word><typing-word word=" "></typing-word>`;
+            words += `<typing-word word="${word}"></typing-word>`;
+            if (i != amount - 1) {
+                words += `<typing-word word=" "></typing-word>`;
+            }
         }
         return words;
     }
