@@ -14,14 +14,33 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            font-size: 2em;
+        }
+
+        header {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            background-color: var(--ctp-frappe-mantle);
+        }
+
+        header > *{
+            margin-left: 1em;
+        }
+
+        a {
+            text-decoration: none;
         }
 
         typing-game {
             margin-left: 10%;
             margin-right: 10%;
+            background-color: var(--ctp-frappe-mantle);
+            padding: 1.5em;
+            border-radius: 1em;
         }
     </style>
-    <script>
+    <script async>
         window.addEventListener('load', () => {
             const typingGame = document.querySelector('typing-game');
             typingGame.start();
@@ -29,6 +48,9 @@
     </script>
 </head>
 <body>
+    <header>
+        <a href="index.html">Home</a>
+    </header>
     <typing-game></typing-game>
 </body>
 </html>

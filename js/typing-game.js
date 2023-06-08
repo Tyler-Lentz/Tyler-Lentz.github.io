@@ -36,6 +36,7 @@ class TypingGame extends HTMLElement {
     #init() {
         this.currentWord = 0; // index of the current word the user is on
         this.currentLetter = 0; // index of the current letter the user is on
+        this.startTime = null; // set when first key is pressed
 
         this.#getCurrentLetterElem().toggleAttribute('current');
     }
@@ -68,15 +69,35 @@ class TypingGame extends HTMLElement {
         if (this.currentLetter >= this.#getNumLettersInCurrentWord()) {
             this.currentLetter = 0;
             this.currentWord++;
-            this.#checkForGenerateNewWords();
+            this.#checkForFinish();
         }
 
         this.#getCurrentLetterElem().toggleAttribute('current');
     }
 
-    #checkForGenerateNewWords() {
-        // TODO:
+    #checkForFinish() {
+        if (this.currentWord >= this.gameContainer.children.length) {
+            this.stopTime = Date.now();
+
+            let time = (this.stopTime - this.startTime) / 1000;
+            let charsCorrect = this.gameContainer.querySelectorAll('typing-letter[correct]').length;
+            let charsIncorrect = this.gameContainer.querySelectorAll('typing-letter[incorrect]').length;
+            let charsTotal = charsCorrect + charsIncorrect;
+            let accuracy = Math.round(charsCorrect / charsTotal * 100);
+            let wpm = Math.round(charsCorrect / 5 / (time / 60));
+
+            this.gameContainer.innerHTML = `
+                <div id="results">
+                    <h1>Results</h1>
+                    <p>Time: ${time} seconds</p>
+                    <p>Characters: ${charsCorrect} correct, ${charsIncorrect} incorrect, ${charsTotal} total</p>
+                    <p>Accuracy: ${accuracy}%</p>
+                    <p>WPM: ${wpm}</p>
+                </div>
+            `;
+        }
     }
+
 
     #getNumLettersInCurrentWord() {
         return this.#getCurrentWord().length;
@@ -117,6 +138,10 @@ class TypingGame extends HTMLElement {
 
                 this.#playSound();
             } else if (event.key.length === 1) {
+                if (this.startTime === null) {
+                    this.startTime = Date.now();
+                }
+
                 if (event.key === this.#getCurrentLetter()) {
                     this.#getCurrentLetterElem().toggleAttribute('correct');
                     this.#advanceCurrentLetter();

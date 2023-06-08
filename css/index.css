@@ -31,7 +31,7 @@ nav {
 }
 
 @media screen and (max-width: 600px) {
-    nav ul {
+    nav ul.site-nav {
         flex-direction: column; /* orient vertically to fit in sidebar */
     }
 
