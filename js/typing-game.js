@@ -249,9 +249,16 @@ class TypingLetter extends HTMLElement {
                 color: var(--ctp-frappe-red);
                 text-decoration: line-through;
             }
-
-            :host([current]) {
-                color: var(--ctp-frappe-blue);
+            
+            :host([current]) ::slotted(span)::before {
+                display: inline-block;
+                content: ' ';
+                white-space: pre;
+                width: 0;
+                padding: 0;
+                margin: 0;
+                outline: 1px solid var(--ctp-frappe-rosewater);
+                animation: cursorFlicker 1s infinite;
             }
 
             :host([letter=' '][incorrect])::after {
