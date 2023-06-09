@@ -46,6 +46,7 @@ class PageSplitter extends HTMLElement {
             clearTimeout(this.scrollTimeout);
             this.scrollTimeout = setTimeout(() => {
                 this.scrolling = false;
+                console.log('scrolling finished')
             }, 100);
 
             if (!this.scrolling) {
@@ -63,6 +64,13 @@ class PageSplitter extends HTMLElement {
         this.scrolling = true;
 
         if (direction === "up") {
+            if (this.currentSlot === -1) {
+                // edge case: already at top of screen so we don't want to trigger a scroll event
+                // because this.scrolling won't get reset correctly.
+                this.scrolling = false;
+                return;
+            }
+
             this.currentSlot--;
             if (this.currentSlot < 0) {
                 this.currentSlot = -1;
@@ -74,6 +82,8 @@ class PageSplitter extends HTMLElement {
             this.currentSlot++;
             if (this.currentSlot >= this.children.length) {
                 this.currentSlot--;
+                this.scrolling = false;
+                return;
             }
         }
         let elem = this.gallery.children[this.currentSlot].assignedElements()[0];
