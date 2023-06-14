@@ -61,6 +61,7 @@
                         <img 
                             class = "right"
                             src="images/projects/toothless-plane.jpg" 
+                            loading="lazy"
                             alt="Picture of Toothless, a plane we made at TUAS"
                             width="403"
                             height="302"
@@ -91,11 +92,19 @@
                             in the future to make it easier to develop.
                         </p>
                         <p>
-                            I was the main contributor for this project.
+                            It currently allows the user to monitor the connectivity status of the plane; important telemetry like altitude, 
+                            battery voltages, and airspeed; image data from the plane's camera; and to alter camera parameters while
+                            in flight. It also allows provides the interface to input the mission parameters, like waypoints, and upload
+                            them to the plane.
                         </p>
-                        <p>
-                            TODO: images here
-                        </p>
+                        <img 
+                            src="images/projects/tritonuas/houston.png" 
+                            loading="lazy"
+                            alt="Control page of the ground control station"
+                            class="center"
+                            width="707"
+                            height="347"
+                            >
                     </div>
                     <div slot="3">
                         <h3><span class="highlight">Hub:</span> Ground Control Station Backend</h3>
@@ -103,6 +112,14 @@
                             languages="go docker"
                             tags="backend gin project-lead HTTP REST">
                         </project-summary>
+                        <p>
+                            The backend of our ground control station, dubbed <span class="highlight">Hub</span>, is a REST API that allows us to
+                            communicate with the plane while in flight. It is currently built in <span class="highlight">Go</span> and runs in a
+                            <span class="highlight">Docker</span> container on an <span class="highlight">Intel NUC</span> on the ground. It receives
+                            basic telemetry data from the plane via a radio connection. It sends this telemetry to our antenna tracker which points
+                            a directional wifi antenna at the plane. With this connection, the GCS can send HTTP requests to the onboard computer
+                            on the plane to request data relevant to the competition mission.
+                        </p>
                     </div>
                     <div slot="4">
                         <h3>RRT* Static Path Planning</h3>
@@ -110,6 +127,20 @@
                             languages="python" 
                             tags="rrt* flask project-lead">
                         </project-summary>
+                        <p>
+                            In order to plan the static path that the plane will take through the competition waypoints, we developed a system
+                            that utilizes an RRT* algorithm for path planning. The algorithm is implemented in <span class="highlight">Python</span>,
+                            and the output is a series of "guidance" waypoints which trace the important parts of the path, which are then fed into
+                            our <span class="highlight">Ardupilot</span> autopilot so that it can fly the path as best as it can.
+                        </p>
+                        <img 
+                            src="images/projects/tritonuas/rrtstar.gif" 
+                            loading="lazy"
+                            alt="animation of rrt* algorithm working on old competition field"
+                            class="center"
+                            width="640"
+                            height="480"
+                            >
                     </div>
                 </slide-gallery>
             </section>
@@ -123,6 +154,21 @@
                             languages="svelte rust tauri typescript html css"
                             tags="solo-project IDE web-app">
                         </project-summary>
+                        <p>
+                            <span class="highlight">Tyde</span> is an IDE I am developing for fun and to learn <span class="highlight">Rust</span>
+                            and <span class="highlight">Svelte</span>. It is built using the <span class="highlight">Tauri</span> framework, which
+                            utilizes Rust for the backend and Svelte for the frontend to build native apps on top of web technologies.
+                            It is currently in a very early stage of development, but I want to continue to improve it and 
+                            slowly add features from editors I actually use, like VSCode.
+                        </p>
+                        <img 
+                            src="images/projects/personal/tyde.png" 
+                            loading="lazy"
+                            alt="editing a file in tyde"
+                            class="center"
+                            width="800"
+                            height="427"
+                            >
                     </div>
                     <div slot="2">
                         <h3><a href="/">tyler-lentz.github.io</a></h3>
@@ -131,6 +177,21 @@
                             languages="javascript css html"
                             tags="vanilla-js web-dev solo-project">
                         </project-summary>
+                        <p>
+                            This website itself is a project that I've been developing for a while, if not entirely in this form. It originated
+                            from a class I took: <span class="highlight">CSE 134B: Web Client Technologies</span>. This class taught the foundations
+                            of HTML, CSS, Javascript, HTTP, and other frontend web technologies. Each assignment built on the previous as we slowly
+                            built up a resume website. This current iteration is the culmination of all of that work, and I plan to continue to
+                            maintain this website as a benchmark for myself to see how much I have improved.
+                        </p>
+                        <img 
+                            src="images/projects/personal/resumesite.png" 
+                            loading="lazy"
+                            alt="home page of this website"
+                            class="center"
+                            width="640"
+                            height="314"
+                            >
                     </div>
                     <div slot="3">
                         <h3>Chrono Defenders</h3>
