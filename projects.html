@@ -51,10 +51,10 @@
                     expand out a list of all the projects that have that keyword, and from there clicking on a project will take you to 
                     a page with more information about that project.
                 </p>
-                <!-- Put statistics about projects here -->
+                <!-- Put statistics about projects here
                 <accordion-container>
                     <output slot="hidden" id="overview-output"></output>
-                </accordion-container>
+                </accordion-container> -->
             </section>
             <section slot="2">
                 <h2>Triton UAS Projects</h2>
@@ -150,7 +150,7 @@
                 <h2>Personal Projects</h2>
                 <slide-gallery>
                     <div slot="1">
-                        <h3>Tyde</h3>
+                        <h3><a href="https://github.com/Tyler-Lentz/tyde">Tyde</a></h3>
                         <project-summary 
                             github="https://github.com/Tyler-Lentz/tyde" 
                             languages="svelte rust tauri typescript html css"
@@ -195,26 +195,28 @@
                             height="314"
                             >
                     </div>
-                    <div slot="3">
-                        <h3>Chrono Defenders</h3>
-                        <project-summary 
-                            github="https://github.com/Tyler-Lentz/ChronoDefenders" 
-                            languages="cpp"
-                            tags="video-game text-based solo-project">
-                        </project-summary>
-                    </div>
                 </slide-gallery>
             </section>
             <section slot="4">
                 <h2>School Projects</h2>
                 <slide-gallery>
                     <div slot="1">
-                        <h3><span class="highlight">CSE 110:</span> Birds of a Feather</h3>
+                        <h3><span class="highlight">CSE 110:</span> <a href="https://github.com/CSE-110-Winter-2022/birds-of-a-feather-team-14">Birds of a Feather</a></h3>
                         <project-summary 
                             github="https://github.com/CSE-110-Winter-2022/birds-of-a-feather-team-14"
                             languages="android android-studio java"
                             tags="agile-development group-project">
                         </project-summary>
+                        <p>
+                            UCSD's CSE 110 course is a class that teaches the fundamentals of software engineering. This involves agile
+                            development, design patterns, git, and working in small teams (of six, for this specific version of the
+                            course). Specifically, we applied these skills while constructing an Android Application titled Birds of a
+                            Feather. This application allowed users to create a profile which included their name, major, and
+                            UCSD courses taken. Then, they could press a button to activate bluetooth and exchange information with
+                            nearby students (for example, in the context of a lecture hall). It would then match students based on their
+                            previous courses, and allow simple preformatted messages to be sent demonstrating a desire to form a group or
+                            get to know each other.
+                        </p>
                     </div>
                     <div slot="2">
                         <h3><span class="highlight">CSE 131:</span> "Snek" Language Compiler</h3>
@@ -222,6 +224,24 @@
                             languages="rust"
                             tags="compiler solo-project">
                         </project-summary>
+                        <p>
+                            As a part of a course on compilers, throughout the quarter we slowly built up a compiler for a toy
+                            language called "snek" with syntax based on s-expressions. Major compiler features included
+                            arithmetic operations, let bindings, if statements, loops, function calls, 
+                            tuples/vectors/dynamically allocated data structures, garbage collection,
+                            and basic optimizations such as inlining, constant folding and propogation, and 
+                            dead code elimination.
+                        </p>
+                        <figure>
+                            <pre>
+                                (fun (acker x y) 
+                                    (if (= x 0) (+ y 1) 
+                                        (if (= y 0) (acker (- x 1) 1) 
+                                            (acker (- x 1) (acker x (- y 1))))))
+                                (acker 3 3)
+                            </pre>
+                            <figcaptio>A sample program in snek, which implements a recursive Ackermann function.</figcaptio>
+                        </figure>
                     </div>
                     <div slot="3">
                         <h3><span class="highlight">CSE 190:</span> IDLE GPT</h3>
