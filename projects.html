@@ -35,222 +35,230 @@
         <page-splitter class="hidden">
             <section slot="1">
                 <h2>Overview</h2>
-                <p style="color: yellow; text-decoration: underline;">Note: this page is currently under construction.</p>
-                <p>
-                    This page is an overview of all of the most relevant projects I've worked on. I have divided them into three categories:
-                    <span class="highlight">Triton UAS</span>, <span class="highlight">Personal</span>, and <span class="highlight">School</span>.
-                </p>
-                <p>
-                    The <span class="highlight">Triton UAS</span> section contains all of the projects I've worked on in my time as a part
-                    of the club. The <span class="highlight">Personal</span> section contains all of the projects I've worked on in my free time.
-                    And lastly, the <span class="highlight">School</span> section contains all of the projects I've worked on as assignments
-                    for classes.
-                </p>
-                <p>
-                    Below, you can expand out a summary of all the keywords I've used to describe each project. Clicking on a keyword will
-                    expand out a list of all the projects that have that keyword, and from there clicking on a project will take you to 
-                    a page with more information about that project.
-                </p>
-                <!-- Put statistics about projects here
-                <accordion-container>
-                    <output slot="hidden" id="overview-output"></output>
-                </accordion-container> -->
+                <div class="vcenter">
+                    <p style="color: yellow; text-decoration: underline;">Note: this page is currently under construction.</p>
+                    <p>
+                        This page is an overview of all of the most relevant projects I've worked on. I have divided them into three categories:
+                        <span class="highlight">Triton UAS</span>, <span class="highlight">Personal</span>, and <span class="highlight">School</span>.
+                    </p>
+                    <p>
+                        The <span class="highlight">Triton UAS</span> section contains all of the projects I've worked on in my time as a part
+                        of the club. The <span class="highlight">Personal</span> section contains all of the projects I've worked on in my free time.
+                        And lastly, the <span class="highlight">School</span> section contains all of the projects I've worked on as assignments
+                        for classes.
+                    </p>
+                    <p>
+                        Below, you can expand out a summary of all the keywords I've used to describe each project. Clicking on a keyword will
+                        expand out a list of all the projects that have that keyword, and from there clicking on a project will take you to 
+                        a page with more information about that project.
+                    </p>
+                    <!-- Put statistics about projects here
+                    <accordion-container>
+                        <output slot="hidden" id="overview-output"></output>
+                    </accordion-container> -->
+                </div>
             </section>
             <section slot="2">
                 <h2>Triton UAS Projects</h2>
-                <slide-gallery>
-                    <div slot="1">
-                        <img 
-                            class = "right"
-                            src="images/projects/toothless-plane.jpg" 
-                            loading="lazy"
-                            alt="Picture of Toothless, a plane we made at TUAS"
-                            width="403"
-                            height="302"
-                            >
-                        <h3>Overview</h3>
-                        <p>
-                            I joined <span class="highlight">Triton UAS</span> in the fall quarter of my freshman year. By the summer of my sophomore year, I had become
-                            one of two leads of the software subteam. This means that I was (and currently still am) responsible for all 
-                            of the software in our plane that contributes to competing in the <span class="highlight">AUVSI SUAS competition.</span>
-                        </p>
-                        <p>
-                            Essentially, the competition requires us to build a plane that can autonomously fly a mission. The mission includes
-                            <span class="highlight">waypoints</span>, a <span class="highlight">search area</span>, and <span class="highlight">drop targets.</span> 
-                            The plane must be able to navigate through the waypoints, cover the search
-                            area while taking pictures and identifying targets, and drop a specific payload on a corresponding target that we identify.
-                        </p>
-                    </div>
-                    <div slot="2">
-                        <h3><span class="highlight">Houston:</span> Ground Control Station Frontend</h3>
-                        <project-summary 
-                            languages="javascript css html"
-                            tags="vanilla-js web-dev project-manager">
-                        </project-summary>
-                        <p>
-                            The frontend of our ground control station, dubbed <span class="highlight">Houston</span>, is a web app that allows us to 
-                            monitor the status of the plane while in flight and change any parameters we need to. 
-                            It is currently built in Vanilla <span class="highlight">JS/CSS/HTML</span>, but we plan to migrate it to a framework 
-                            in the future to make it easier to develop.
-                        </p>
-                        <p>
-                            It currently allows the user to monitor the connectivity status of the plane; important telemetry like altitude, 
-                            battery voltages, and airspeed; image data from the plane's camera; and to alter camera parameters while
-                            in flight. It also allows provides the interface to input the mission parameters, like waypoints, and upload
-                            them to the plane.
-                        </p>
-                        <img 
-                            src="images/projects/tritonuas/houston.png" 
-                            loading="lazy"
-                            alt="Control page of the ground control station"
-                            class="center"
-                            width="707"
-                            height="347"
-                            >
-                    </div>
-                    <div slot="3">
-                        <h3><span class="highlight">Hub:</span> Ground Control Station Backend</h3>
-                        <project-summary 
-                            languages="go docker"
-                            tags="backend gin project-lead HTTP REST">
-                        </project-summary>
-                        <p>
-                            The backend of our ground control station, dubbed <span class="highlight">Hub</span>, is a REST API that allows us to
-                            communicate with the plane while in flight. It is currently built in <span class="highlight">Go</span> and runs in a
-                            <span class="highlight">Docker</span> container on an <span class="highlight">Intel NUC</span> on the ground. It receives
-                            basic telemetry data from the plane via a radio connection. It sends this telemetry to our antenna tracker which points
-                            a directional wifi antenna at the plane. With this connection, the GCS can send HTTP requests to the onboard computer
-                            on the plane to request data relevant to the competition mission.
-                        </p>
-                    </div>
-                    <div slot="4">
-                        <h3>RRT* Static Path Planning</h3>
-                        <project-summary 
-                            languages="python" 
-                            tags="rrt* flask project-lead">
-                        </project-summary>
-                        <p>
-                            In order to plan the static path that the plane will take through the competition waypoints, we developed a system
-                            that utilizes an RRT* algorithm for path planning. The algorithm is implemented in <span class="highlight">Python</span>,
-                            and the output is a series of "guidance" waypoints which trace the important parts of the path, which are then fed into
-                            our <span class="highlight">Ardupilot</span> autopilot so that it can fly the path as best as it can.
-                        </p>
-                        <img 
-                            src="images/projects/tritonuas/rrtstar.gif" 
-                            loading="lazy"
-                            alt="animation of rrt* algorithm working on old competition field"
-                            class="center"
-                            width="640"
-                            height="480"
-                            >
-                    </div>
-                </slide-gallery>
+                <div class="vcenter">
+                    <slide-gallery>
+                        <div slot="1">
+                            <img 
+                                class = "right"
+                                src="images/projects/toothless-plane.jpg" 
+                                loading="lazy"
+                                alt="Picture of Toothless, a plane we made at TUAS"
+                                width="403"
+                                height="302"
+                                >
+                            <h3>Overview</h3>
+                            <p>
+                                I joined <span class="highlight">Triton UAS</span> in the fall quarter of my freshman year. By the summer of my sophomore year, I had become
+                                one of two leads of the software subteam. This means that I was (and currently still am) responsible for all 
+                                of the software in our plane that contributes to competing in the <span class="highlight">AUVSI SUAS competition.</span>
+                            </p>
+                            <p>
+                                Essentially, the competition requires us to build a plane that can autonomously fly a mission. The mission includes
+                                <span class="highlight">waypoints</span>, a <span class="highlight">search area</span>, and <span class="highlight">drop targets.</span> 
+                                The plane must be able to navigate through the waypoints, cover the search
+                                area while taking pictures and identifying targets, and drop a specific payload on a corresponding target that we identify.
+                            </p>
+                        </div>
+                        <div slot="2">
+                            <h3><span class="highlight">Houston:</span> Ground Control Station Frontend</h3>
+                            <project-summary 
+                                languages="javascript css html"
+                                tags="vanilla-js web-dev project-manager">
+                            </project-summary>
+                            <p>
+                                The frontend of our ground control station, dubbed <span class="highlight">Houston</span>, is a web app that allows us to 
+                                monitor the status of the plane while in flight and change any parameters we need to. 
+                                It is currently built in Vanilla <span class="highlight">JS/CSS/HTML</span>, but we plan to migrate it to a framework 
+                                in the future to make it easier to develop.
+                            </p>
+                            <p>
+                                It currently allows the user to monitor the connectivity status of the plane; important telemetry like altitude, 
+                                battery voltages, and airspeed; image data from the plane's camera; and to alter camera parameters while
+                                in flight. It also allows provides the interface to input the mission parameters, like waypoints, and upload
+                                them to the plane.
+                            </p>
+                            <img 
+                                src="images/projects/tritonuas/houston.png" 
+                                loading="lazy"
+                                alt="Control page of the ground control station"
+                                class="center"
+                                width="707"
+                                height="347"
+                                >
+                        </div>
+                        <div slot="3">
+                            <h3><span class="highlight">Hub:</span> Ground Control Station Backend</h3>
+                            <project-summary 
+                                languages="go docker"
+                                tags="backend gin project-lead HTTP REST">
+                            </project-summary>
+                            <p>
+                                The backend of our ground control station, dubbed <span class="highlight">Hub</span>, is a REST API that allows us to
+                                communicate with the plane while in flight. It is currently built in <span class="highlight">Go</span> and runs in a
+                                <span class="highlight">Docker</span> container on an <span class="highlight">Intel NUC</span> on the ground. It receives
+                                basic telemetry data from the plane via a radio connection. It sends this telemetry to our antenna tracker which points
+                                a directional wifi antenna at the plane. With this connection, the GCS can send HTTP requests to the onboard computer
+                                on the plane to request data relevant to the competition mission.
+                            </p>
+                        </div>
+                        <div slot="4">
+                            <h3>RRT* Static Path Planning</h3>
+                            <project-summary 
+                                languages="python" 
+                                tags="rrt* flask project-lead">
+                            </project-summary>
+                            <p>
+                                In order to plan the static path that the plane will take through the competition waypoints, we developed a system
+                                that utilizes an RRT* algorithm for path planning. The algorithm is implemented in <span class="highlight">Python</span>,
+                                and the output is a series of "guidance" waypoints which trace the important parts of the path, which are then fed into
+                                our <span class="highlight">Ardupilot</span> autopilot so that it can fly the path as best as it can.
+                            </p>
+                            <img 
+                                src="images/projects/tritonuas/rrtstar.gif" 
+                                loading="lazy"
+                                alt="animation of rrt* algorithm working on old competition field"
+                                class="center"
+                                width="640"
+                                height="480"
+                                >
+                        </div>
+                    </slide-gallery>
+                </div>
             </section>
             <section slot="3">
                 <h2>Personal Projects</h2>
-                <slide-gallery>
-                    <div slot="1">
-                        <h3><a href="https://github.com/Tyler-Lentz/tyde">Tyde</a></h3>
-                        <project-summary 
-                            github="https://github.com/Tyler-Lentz/tyde" 
-                            languages="svelte rust tauri typescript html css"
-                            tags="solo-project IDE web-app">
-                        </project-summary>
-                        <p>
-                            <span class="highlight">Tyde</span> is an IDE I am developing for fun and to learn <span class="highlight">Rust</span>
-                            and <span class="highlight">Svelte</span>. It is built using the <span class="highlight">Tauri</span> framework, which
-                            utilizes Rust for the backend and Svelte for the frontend to build native apps on top of web technologies.
-                            It is currently in a very early stage of development, but I want to continue to improve it and 
-                            slowly add features from editors I actually use, like VSCode.
-                        </p>
-                        <img 
-                            src="images/projects/personal/tyde.png" 
-                            loading="lazy"
-                            alt="editing a file in tyde"
-                            class="center"
-                            width="800"
-                            height="427"
-                            >
-                    </div>
-                    <div slot="2">
-                        <h3><a href="/">tyler-lentz.github.io</a></h3>
-                        <project-summary 
-                            github="https://github.com/Tyler-Lentz/Tyler-Lentz.github.io" 
-                            languages="javascript css html"
-                            tags="vanilla-js web-dev solo-project">
-                        </project-summary>
-                        <p>
-                            This website itself is a project that I've been developing for a while, if not entirely in this form. It originated
-                            from a class I took: <span class="highlight">CSE 134B: Web Client Technologies</span>. This class taught the foundations
-                            of HTML, CSS, Javascript, HTTP, and other frontend web technologies. Each assignment built on the previous as we slowly
-                            built up a resume website. This current iteration is the culmination of all of that work, and I plan to continue to
-                            maintain this website as a benchmark for myself to see how much I have improved.
-                        </p>
-                        <img 
-                            src="images/projects/personal/resumesite.png" 
-                            loading="lazy"
-                            alt="home page of this website"
-                            class="center"
-                            width="640"
-                            height="314"
-                            >
-                    </div>
-                </slide-gallery>
+                <div class="vcenter">
+                    <slide-gallery>
+                        <div slot="1">
+                            <h3><a href="https://github.com/Tyler-Lentz/tyde">Tyde</a></h3>
+                            <project-summary 
+                                github="https://github.com/Tyler-Lentz/tyde" 
+                                languages="svelte rust tauri typescript html css"
+                                tags="solo-project IDE web-app">
+                            </project-summary>
+                            <p>
+                                <span class="highlight">Tyde</span> is an IDE I am developing for fun and to learn <span class="highlight">Rust</span>
+                                and <span class="highlight">Svelte</span>. It is built using the <span class="highlight">Tauri</span> framework, which
+                                utilizes Rust for the backend and Svelte for the frontend to build native apps on top of web technologies.
+                                It is currently in a very early stage of development, but I want to continue to improve it and 
+                                slowly add features from editors I actually use, like VSCode.
+                            </p>
+                            <img 
+                                src="images/projects/personal/tyde.png" 
+                                loading="lazy"
+                                alt="editing a file in tyde"
+                                class="center"
+                                width="800"
+                                height="427"
+                                >
+                        </div>
+                        <div slot="2">
+                            <h3><a href="/">tyler-lentz.github.io</a></h3>
+                            <project-summary 
+                                github="https://github.com/Tyler-Lentz/Tyler-Lentz.github.io" 
+                                languages="javascript css html"
+                                tags="vanilla-js web-dev solo-project">
+                            </project-summary>
+                            <p>
+                                This website itself is a project that I've been developing for a while, if not entirely in this form. It originated
+                                from a class I took: <span class="highlight">CSE 134B: Web Client Technologies</span>. This class taught the foundations
+                                of HTML, CSS, Javascript, HTTP, and other frontend web technologies. Each assignment built on the previous as we slowly
+                                built up a resume website. This current iteration is the culmination of all of that work, and I plan to continue to
+                                maintain this website as a benchmark for myself to see how much I have improved.
+                            </p>
+                            <img 
+                                src="images/projects/personal/resumesite.png" 
+                                loading="lazy"
+                                alt="home page of this website"
+                                class="center"
+                                width="640"
+                                height="314"
+                                >
+                        </div>
+                    </slide-gallery>
+                </div>
             </section>
             <section slot="4">
                 <h2>School Projects</h2>
-                <slide-gallery>
-                    <div slot="1">
-                        <h3><span class="highlight">CSE 110:</span> <a href="https://github.com/CSE-110-Winter-2022/birds-of-a-feather-team-14">Birds of a Feather</a></h3>
-                        <project-summary 
-                            github="https://github.com/CSE-110-Winter-2022/birds-of-a-feather-team-14"
-                            languages="android android-studio java"
-                            tags="agile-development group-project">
-                        </project-summary>
-                        <p>
-                            UCSD's CSE 110 course is a class that teaches the fundamentals of software engineering. This involves agile
-                            development, design patterns, git, and working in small teams (of six, for this specific version of the
-                            course). Specifically, we applied these skills while constructing an Android Application titled Birds of a
-                            Feather. This application allowed users to create a profile which included their name, major, and
-                            UCSD courses taken. Then, they could press a button to activate bluetooth and exchange information with
-                            nearby students (for example, in the context of a lecture hall). It would then match students based on their
-                            previous courses, and allow simple preformatted messages to be sent demonstrating a desire to form a group or
-                            get to know each other.
-                        </p>
-                    </div>
-                    <div slot="2">
-                        <h3><span class="highlight">CSE 131:</span> "Snek" Language Compiler</h3>
-                        <project-summary
-                            languages="rust"
-                            tags="compiler solo-project">
-                        </project-summary>
-                        <p>
-                            As a part of a course on compilers, throughout the quarter we slowly built up a compiler for a toy
-                            language called "snek" with syntax based on s-expressions. Major compiler features included
-                            arithmetic operations, let bindings, if statements, loops, function calls, 
-                            tuples/vectors/dynamically allocated data structures, garbage collection,
-                            and basic optimizations such as inlining, constant folding and propogation, and 
-                            dead code elimination.
-                        </p>
-                        <figure>
-                            <pre>
-                                (fun (acker x y) 
-                                    (if (= x 0) (+ y 1) 
-                                        (if (= y 0) (acker (- x 1) 1) 
-                                            (acker (- x 1) (acker x (- y 1))))))
-                                (acker 3 3)
-                            </pre>
-                            <figcaptio>A sample program in snek, which implements a recursive Ackermann function.</figcaptio>
-                        </figure>
-                    </div>
-                    <div slot="3">
-                        <h3><span class="highlight">CSE 190:</span> IDLE GPT</h3>
-                        <project-summary
-                            languages="python"
-                            tags="tkinter group-project large-codebase">
-                        </project-summary>
-                    </div>
-                </slide-gallery>
+                <div class="vcenter">
+                    <slide-gallery>
+                        <div slot="1">
+                            <h3><span class="highlight">CSE 110:</span> <a href="https://github.com/CSE-110-Winter-2022/birds-of-a-feather-team-14">Birds of a Feather</a></h3>
+                            <project-summary 
+                                github="https://github.com/CSE-110-Winter-2022/birds-of-a-feather-team-14"
+                                languages="android android-studio java"
+                                tags="agile-development group-project">
+                            </project-summary>
+                            <p>
+                                UCSD's CSE 110 course is a class that teaches the fundamentals of software engineering. This involves agile
+                                development, design patterns, git, and working in small teams (of six, for this specific version of the
+                                course). Specifically, we applied these skills while constructing an Android Application titled Birds of a
+                                Feather. This application allowed users to create a profile which included their name, major, and
+                                UCSD courses taken. Then, they could press a button to activate bluetooth and exchange information with
+                                nearby students (for example, in the context of a lecture hall). It would then match students based on their
+                                previous courses, and allow simple preformatted messages to be sent demonstrating a desire to form a group or
+                                get to know each other.
+                            </p>
+                        </div>
+                        <div slot="2">
+                            <h3><span class="highlight">CSE 131:</span> "Snek" Language Compiler</h3>
+                            <project-summary
+                                languages="rust"
+                                tags="compiler solo-project">
+                            </project-summary>
+                            <p>
+                                As a part of a course on compilers, throughout the quarter we slowly built up a compiler for a toy
+                                language called "snek" with syntax based on s-expressions. Major compiler features included
+                                arithmetic operations, let bindings, if statements, loops, function calls, 
+                                tuples/vectors/dynamically allocated data structures, garbage collection,
+                                and basic optimizations such as inlining, constant folding and propogation, and 
+                                dead code elimination.
+                            </p>
+                            <figure>
+                                <pre>
+                                    (fun (acker x y) 
+                                        (if (= x 0) (+ y 1) 
+                                            (if (= y 0) (acker (- x 1) 1) 
+                                                (acker (- x 1) (acker x (- y 1))))))
+                                    (acker 3 3)
+                                </pre>
+                                <figcaptio>A sample program in snek, which implements a recursive Ackermann function.</figcaptio>
+                            </figure>
+                        </div>
+                        <div slot="3">
+                            <h3><span class="highlight">CSE 190:</span> IDLE GPT</h3>
+                            <project-summary
+                                languages="python"
+                                tags="tkinter group-project large-codebase">
+                            </project-summary>
+                        </div>
+                    </slide-gallery>
+                </div>
             </section>
         </page-splitter> 
     </main>

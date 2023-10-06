@@ -3,6 +3,10 @@ h1, h2, h3 {
     margin: 0.5rem;
 }
 
+h2 {
+    padding-top: 1em;
+}
+
 nav {
     display: flex;
     flex-direction: row;
@@ -52,6 +56,17 @@ page-splitter {
 p {
     margin: 2rem;
     padding: 1rem;
+}
+
+page-splitter > section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flexs-start;
+}
+
+page-splitter > section > div.vcenter {
+    margin: auto;
 }
 
 @media only screen and (min-width: 1600px) {
