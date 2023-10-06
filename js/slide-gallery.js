@@ -82,15 +82,28 @@ class SlideGallery extends HTMLElement {
             }
         }
 
-        if (this.current === 0) {
-            this.leftButton.setAttribute("disabled", "true");
-        } else if (this.current === this.children.length - 1) {
-            this.rightButton.setAttribute("disabled", "true");
+        // diplay the correct arrows that should appear
+        if (this.children.length === 2) {
+            // special case, easier to handle separately
+            if (this.current === 0) {
+                this.leftButton.toggleAttribute("disabled", true)
+                this.rightButton.removeAttribute("disabled");
+            } else {
+                this.rightButton.toggleAttribute("disabled", true)
+                this.leftButton.removeAttribute("disabled");
+            }
+        } else if (this.children.length > 2) {
+            if (this.current === 0) {
+                this.leftButton.toggleAttribute("disabled", true);
+            } else if (this.current === this.children.length - 1) {
+                this.rightButton.toggleAttribute("disabled", true);
+            }
+            else {
+                this.leftButton.removeAttribute("disabled");
+                this.rightButton.removeAttribute("disabled");
+            }
         }
-        else {
-            this.leftButton.removeAttribute("disabled");
-            this.rightButton.removeAttribute("disabled");
-        }
+
     }
 
     #makeStyleHTML() {
