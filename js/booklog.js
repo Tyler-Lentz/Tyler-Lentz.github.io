@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
     });
-
+        
     search.addEventListener("keydown", (e) => {
         let query = search.value.toLowerCase();
         if (e.key == "Backspace") {
