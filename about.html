@@ -33,12 +33,15 @@
                 <h2>General</h2>
                 <div class="vcenter">
 
-                    <img class="left" 
-                        loading="lazy"
-                        src="images/about/tyler.png" 
-                        alt="Me in a suit." 
-                        width="289" 
-                        height="639">
+                    <picture>
+                        <source srcset="images/about/tyler-crop.png" media="(max-width: 800px)" height="311"/>
+                        <img class="left" 
+                            loading="lazy"
+                            src="images/about/tyler.png" 
+                            alt="Me in a suit." 
+                            width="289" 
+                            height="639">
+                    </picture>
 
                     <p>
                         Hi, I'm <span class="highlight">Tyler Lentz</span>. 
@@ -50,7 +53,7 @@
                     <p>
                         I am interested in all things <span class="highlight">Fantasy</span> and <span class="highlight">Sci-fi</span>, and especially books. 
                         I enjoy programming, and especially <span class="highlight">frontend design</span>. 
-                        I also really enjoy lower level systems languages like <span class="highlight">C</span> and <span class="highlight">Rust</span>.
+                        I also enjoy lower level systems languages like <span class="highlight">C</span> and <span class="highlight">Rust</span>.
                     </p>
 
                     <p>
@@ -67,12 +70,15 @@
                 <h2>Academics</h2>
                 <div class="vcenter">
 
-                    <img class="center" 
-                        loading="lazy"
-                        src="images/about/2022-competition.jpg" 
-                        alt="TUAS 2022 5th place team." 
-                        width="646" 
-                        height="426">
+                    <picture>
+                        <source srcset="images/about/2022-competition.jpg" media="(max-width: 800px)" width="323" height="213"/>
+                        <img class="center" 
+                            loading="lazy"
+                            src="images/about/2022-competition.jpg" 
+                            alt="TUAS 2022 5th place team." 
+                            width="646" 
+                            height="426">
+                    </picture>
 
                     <p>
                         I graduated from <span class="highlight">Saugus High School</span> in the year 2020.
@@ -129,78 +135,143 @@
                     <slide-gallery>
                         <div slot="1">
                             <figure>
-                                <img
-                                    src="images/about/favorites/the-wheel-of-time.webp" 
-                                    loading="lazy"
-                                    alt="The Wheel of Time"
-                                    width="400"
-                                    height="600">
-                                <figcaption>Favorite Fantasy Series: <span class="highlight">The Wheel of Time</span></figcaption>
+                                <picture>
+                                    <source 
+                                        srcset="images/about/favorites/the-wheel-of-time-crop.webp" 
+                                        media="(max-width: 800px)" 
+                                        height="272"
+                                        width="295" />
+                                    <img
+                                        src="images/about/favorites/the-wheel-of-time.webp" 
+                                        alt="The Wheel of Time"
+                                        width="400"
+                                        height="600" />
+                                </picture>
+                                <figcaption>Fantasy Series: <span class="highlight">The Wheel of Time</span></figcaption>
                             </figure>
                         </div>
                         <div slot="2">
                             <figure>
-                                <img 
-                                    src="images/about/favorites/the-expanse.jpg" 
-                                    loading="lazy"
-                                    alt="The Expanse"
-                                    width="400"
-                                    height="600">
-                                <figcaption>Favorite Sci-fi Series: <span class="highlight">The Expanse</span></figcaption>
+                                <picture>
+                                    <source
+                                        srcset="images/about/favorites/asoiaf-crop.jpg" 
+                                        media="(max-width: 800px)"
+                                        width="300"
+                                        height="300" />
+                                    <img
+                                        src="images/about/favorites/asoiaf.jpg" 
+                                        alt="A Song of Ice and Fire"
+                                        width="400"
+                                        height="600" />
+                                </picture>
+                                <figcaption>Fantasy Series: <span class="highlight">A Song of Ice and Fire</span></figcaption>
                             </figure>
                         </div>
                         <div slot="3">
                             <figure>
-                                <img 
-                                    src="images/about/favorites/children-of-men.jpg" 
-                                    alt="Children of Men"
-                                    width="400"
-                                    height="600">
-                                <figcaption>Favorite Film: <span class="highlight">Children of Men</span></figcaption>
+                                <picture>
+                                    <source 
+                                        srcset="images/about/favorites/realm-of-the-elderlings-crop.jpg"
+                                        media="(max-width: 800px)"
+                                        width="300"
+                                        height="300"
+                                        />
+                                    <img
+                                        src="images/about/favorites/realm-of-the-elderlings.jpg" 
+                                        alt="Realm of the Elderlings"
+                                        width="400"
+                                        height="600" />
+                                </picture>
+                                <figcaption>Fantasy Series: <span class="highlight">Realm of the Elderlings</span></figcaption>
                             </figure>
                         </div>
                         <div slot="4">
                             <figure>
-                                <img 
-                                    src="images/about/favorites/outer-wilds.png" 
-                                    loading="lazy"
-                                    alt="Outer Wilds"
-                                    width="400"
-                                    height="600">
-                                <figcaption>Favorite Video Game: <span class="highlight">Outer Wilds</span></figcaption>
+                                <picture>
+                                    <source 
+                                        srcset="images/about/favorites/the-expanse-crop.jpg"
+                                        media="(max-width: 800px)"
+                                        width="300"
+                                        height="300"
+                                        />
+                                    <img 
+                                        src="images/about/favorites/the-expanse.jpg" 
+                                        alt="The Expanse"
+                                        width="400"
+                                        height="600">
+                                </picture>
+                                <figcaption>Sci-fi Series: <span class="highlight">The Expanse</span></figcaption>
                             </figure>
                         </div>
                         <div slot="5">
                             <figure>
-                                <img 
-                                    src="images/about/favorites/violet-evergarden.jpg" 
-                                    loading="lazy"
-                                    alt="Violet Evergarden"
-                                    width="400"
-                                    height="600">
-                                <figcaption>Favorite Anime: <span class="highlight">Violet Evergarden</span></figcaption>
+                                <picture>
+                                    <source
+                                        srcset="images/about/favorites/children-of-men-crop.jpg"
+                                        media="(max-width: 800px)"
+                                        width="300"
+                                        height="300"
+                                        />
+                                    <img 
+                                        src="images/about/favorites/children-of-men.jpg" 
+                                        alt="Children of Men"
+                                        width="400"
+                                        height="600">
+                                </picture>
+                                <figcaption>Film: <span class="highlight">Children of Men</span></figcaption>
                             </figure>
                         </div>
                         <div slot="6">
                             <figure>
-                                <img 
-                                    src="images/about/favorites/chainsaw-man.jpg" 
-                                    loading="lazy"
-                                    alt="Chainsaw Man"
-                                    width="400"
-                                    height="600">
-                                <figcaption>Favorite Manga: <span class="highlight">Chainsaw Man</span></figcaption>
+                                <picture>
+                                    <source
+                                        srcset="images/about/favorites/outer-wilds-crop.png"
+                                        media="(max-width: 800px)"
+                                        width="300"
+                                        height="300"
+                                        />
+                                    <img 
+                                        src="images/about/favorites/outer-wilds.png" 
+                                        alt="Outer Wilds"
+                                        width="400"
+                                        height="600">
+                                </picture>
+                                <figcaption>Video Game: <span class="highlight">Outer Wilds</span></figcaption>
                             </figure>
                         </div>
                         <div slot="7">
                             <figure>
-                                <img 
-                                    src="images/about/favorites/noooo.gif" 
-                                    loading="lazy"
-                                    alt="NOOOO! gif"
-                                    width="498"
-                                    height="498">
-                                <figcaption>Favorite Gif/Emoji: <span class="highlight">This one</span></figcaption>
+                                <picture>
+                                    <source 
+                                        srcset="images/about/favorites/chainsaw-man-crop.jpg"
+                                        media="(max-width: 800px)"
+                                        width="300"
+                                        height="300"
+                                        />
+                                    <img 
+                                        src="images/about/favorites/chainsaw-man.jpg" 
+                                        alt="Chainsaw Man"
+                                        width="400"
+                                        height="600">
+                                </picture>
+                                <figcaption>Anime/Manga: <span class="highlight">Chainsaw Man</span></figcaption>
+                            </figure>
+                        </div>
+                        <div slot="8">
+                            <figure>
+                                <picture>
+                                    <source
+                                        srcset="images/about/favorites/noooo.gif" 
+                                        media="(max-width: 800px)"
+                                        width="300"
+                                        height="300"/>
+                                    <img 
+                                        src="images/about/favorites/noooo.gif" 
+                                        alt="NOOOO! gif"
+                                        width="498"
+                                        height="498"/>
+                                </picture>
+                                <figcaption>Gif/Emoji: <span class="highlight">This one</span></figcaption>
                             </figure>
                         </div>
                     </slide-gallery>

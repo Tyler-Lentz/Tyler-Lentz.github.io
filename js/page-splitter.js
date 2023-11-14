@@ -28,7 +28,6 @@ class PageSplitter extends HTMLElement {
         });
 
         document.addEventListener('wheel', (e) => {
-            console.log('wheel')
             e.preventDefault();
             if (!this.scrolling) {
                 if (e.deltaY > 0) {
@@ -46,7 +45,6 @@ class PageSplitter extends HTMLElement {
             clearTimeout(this.scrollTimeout);
             this.scrollTimeout = setTimeout(() => {
                 this.scrolling = false;
-                console.log('scrolling finished')
             }, 100);
 
             if (!this.scrolling) {
