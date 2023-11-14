@@ -119,6 +119,9 @@ page-splitter > section > div.vcenter {
         margin: 0;
     }
 
+}
+
+@media only screen and (max-width: 400px) {
     img {
         float: none !important;
         margin: auto; /* center */
