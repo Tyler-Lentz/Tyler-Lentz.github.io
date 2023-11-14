@@ -118,4 +118,9 @@ page-splitter > section > div.vcenter {
     p {
         margin: 0;
     }
+
+    img {
+        float: none !important;
+        margin: auto; /* center */
+    }
 }
