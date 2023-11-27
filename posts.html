@@ -8,12 +8,35 @@
 
     <link rel="stylesheet" media="screen" href="css/global.css">
     <link rel="stylesheet" media="screen" href="css/posts.css">
+    <link rel="stylesheet" media="screen" href="css/page.css">
 
     <script type="module" src="js/post-summary.js"></script>
 </head>
 <body>
-    <h1>Posts</h1>
+    <header>
+        <h1>Posts</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="booklog.html">Book Log</a></li>
+                <li><a href="posts.html" class="current">Posts</a></li>
+            </ul>
+        </nav>
+    </header>
 
-
+    <main>
+        <ol>
+            <li>
+                <post-summary 
+                    title="Post Title" 
+                    description="post-description" 
+                    date="2023-11-01" 
+                    imgsrc="images/about/tyler-crop.png">
+                </post-summary>
+            </li>
+        </ol>
+    </main>
 </body>
 </html>

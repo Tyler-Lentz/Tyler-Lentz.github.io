@@ -1,0 +1,16 @@
+h1 {
+    text-align: center;
+}
+
+ol {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+li {
+    border-radius: 10px;
+    background-color: var(--ctp-frappe-mantle);
+    padding: 1rem;
+}

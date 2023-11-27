@@ -16,6 +16,7 @@ nav {
 
 main {
     background-color: var(--ctp-frappe-crust);
+    flex: 1 1 auto;
 }
 
 hr {
