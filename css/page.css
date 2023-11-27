@@ -49,7 +49,7 @@ img.center {
 page-splitter {
     transition: opacity 0.5s ease-in;
 }
-.hidden {
+.fadein {
     opacity: 0;
     transition: opacity 0.5s ease-in;
 }
