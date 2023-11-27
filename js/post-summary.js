@@ -9,10 +9,14 @@ class PostSummary extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return ["title", "date", "description", "imgsrc"];
+        return ["date", "description", "imgsrc"];
     }
 
     attributeChangedCallback(name, _oldValue, newValue) {
+        if (this.shadowRoot == null) {
+            return; 
+        }
+
         if (name == "imgsrc") {
             this.shadowRoot.getElementById("img").src = newValue;
         } else {
@@ -24,7 +28,8 @@ class PostSummary extends HTMLElement {
         return /*html*/`
             <div id="container">
                 <img id="img" src="${this.getAttribute("imgsrc")}">
-                <p id="title"> ${this.getAttribute("title")} </p> 
+                <slot name="title"> 
+                </slot> 
                 <p id="date"> ${this.getAttribute("date")} </p>
                 <p id="description"> ${this.getAttribute("description")} </p>
             </div>
@@ -47,6 +52,10 @@ class PostSummary extends HTMLElement {
                 #date {
                     font-size: 0.75em;
                     margin-bottom: 1em;
+                }
+
+                img {
+                    border-radius: 20px;
                 }
 
             </style>
