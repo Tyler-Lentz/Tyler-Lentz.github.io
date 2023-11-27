@@ -16,8 +16,17 @@
     <script async type="module" src="js/project-summary.js"></script>
     <!-- Do fade effect on page load -->
     <script async type="module" src="js/pageloadfade.js"></script>
+    <!-- Backup if javascript is disabled, so everything isn't completely invisible -->
+    <noscript>
+        <style>
+            .hidden {
+                opacity: 1 !important;
+            }
+        </style>
+    </noscript>
     <!-- Pull Summary info into the output -->
     <script async type="module" src="js/projects.js"></script>
+
 </head>
 <body>
     <header>

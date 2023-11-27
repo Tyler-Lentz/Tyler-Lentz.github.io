@@ -11,6 +11,16 @@
     <link rel="stylesheet" media="screen" href="/css/page.css">
 
     <script type="module" src="js/post-summary.js"></script>
+
+    <script async type="module" src="/js/pageloadfade.js"></script>
+    <!-- Backup if javascript is disabled, so everything isn't completely invisible -->
+    <noscript>
+        <style>
+            .hidden {
+                opacity: 1 !important;
+            }
+        </style>
+    </noscript>
 </head>
 <body>
     <header>
@@ -26,8 +36,8 @@
         </nav>
     </header>
 
-    <main>
-        <ol id="posts-list" >
+    <main >
+        <ol id="posts-list" class="hidden">
             <li>
                 <post-summary 
                     description="..." 

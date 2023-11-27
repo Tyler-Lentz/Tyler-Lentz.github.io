@@ -11,6 +11,10 @@ ol {
     justify-content: center;
 }
 
+#posts-list {
+    transition: opacity 0.5s ease-in;
+}
+
 #posts-list li {
     border-radius: 10px;
     background-color: var(--ctp-frappe-mantle);
