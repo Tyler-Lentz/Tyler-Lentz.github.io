@@ -60,3 +60,26 @@ img.icon:hover {
     filter: invert(85%) sepia(3%) saturate(1933%) hue-rotate(323deg) brightness(107%) contrast(90%);
     /* based off var(--ctp-frappe-rosewater) */
 }
+
+
+#about-nav {
+    display: flex;
+    flex-direction: column;
+}
+
+#about-nav > div {
+    display: flex;
+    flex-direction: column;
+    height: 0em;
+    overflow-y: hidden;
+    font-size: 0.5em;
+    transition: height 0.3s ease-in;
+}
+
+#about-nav > div > a {
+    height: inherit;
+}
+
+#about-nav:hover > div {
+    height: 10em;
+}
