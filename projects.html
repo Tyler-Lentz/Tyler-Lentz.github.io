@@ -16,8 +16,17 @@
     <script async type="module" src="js/project-summary.js"></script>
     <!-- Do fade effect on page load -->
     <script async type="module" src="js/pageloadfade.js"></script>
+    <!-- Backup if javascript is disabled, so everything isn't completely invisible -->
+    <noscript>
+        <style>
+            .fadein {
+                opacity: 1 !important;
+            }
+        </style>
+    </noscript>
     <!-- Pull Summary info into the output -->
     <script async type="module" src="js/projects.js"></script>
+
 </head>
 <body>
     <header>
@@ -28,11 +37,12 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="projects.html" class="current">Projects</a></li>
                 <li><a href="booklog.html">Book Log</a></li>
+                <li><a href="posts.html">Posts</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <page-splitter class="hidden">
+        <page-splitter class="fadein">
             <section slot="1">
                 <h2>Overview</h2>
                 <div class="vcenter">

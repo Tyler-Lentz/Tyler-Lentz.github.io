@@ -2,8 +2,8 @@
 
 window.addEventListener('load', () => {
     setTimeout(() => {
-        Array.from(document.getElementsByClassName('hidden')).forEach((elem) => {
-            elem.classList.remove('hidden');
+        Array.from(document.getElementsByClassName('fadein')).forEach((elem) => {
+            elem.classList.remove('fadein');
         });
     }, 100);
 });

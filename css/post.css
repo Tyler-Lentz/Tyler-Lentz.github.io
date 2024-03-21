@@ -1,0 +1,77 @@
+/* modified from https://www.youtube.com/watch?v=c13gpBrnGEw */
+
+.content-grid {
+  --padding-inline: 1rem;
+  --content-max-width: 1200px;
+  --breakout-max-width: 1600px;
+
+  --breakout-size: calc(
+    (var(--breakout-max-width) - var(--content-max-width)) / 2
+  );
+
+  display: grid;
+  grid-template-columns:
+    [full-width-start] minmax(var(--padding-inline), 1fr)
+    [breakout-start] minmax(0, var(--breakout-size))
+    [content-start] min(
+      100% - (var(--padding-inline) * 2),
+      var(--content-max-width)
+    )
+    [content-end]
+    minmax(0, var(--breakout-size)) [breakout-end]
+    minmax(var(--padding-inline), 1fr) [full-width-end];
+
+    word-wrap: break-word;
+}
+
+p {
+    line-height: 22pt;
+    font-size: 14pt;
+    margin: 0;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.content-grid > :not(.breakout, .full-width),
+.full-width > :not(.breakout, .full-width) {
+  grid-column: content;
+}
+
+.content-grid > .breakout {
+  grid-column: breakout;
+}
+
+.content-grid > .full-width {
+  grid-column: full-width;
+
+  display: grid;
+  grid-template-columns: inherit;
+}
+
+img.full-width {
+  width: 90%;
+  max-height: 60vh;
+  object-fit: cover;
+  margin: auto;
+}
+
+.breakout {
+    background-color: var(--ctp-frappe-rosewater);
+    color: var(--ctp-frappe-mantle);
+    padding: 2rem;
+}
+
+ol {
+    list-style: upper-roman;
+}
+
+blockquote {
+    margin: 0;
+    padding: 0;
+    grid-template-columns: none !important;
+}
+
+blockquote footer {
+    grid-row: 2;
+    margin-left: 1em;
+}

@@ -16,6 +16,7 @@ nav {
 
 main {
     background-color: var(--ctp-frappe-crust);
+    flex: 1 1 auto;
 }
 
 hr {
@@ -48,7 +49,7 @@ img.center {
 page-splitter {
     transition: opacity 0.5s ease-in;
 }
-.hidden {
+.fadein {
     opacity: 0;
     transition: opacity 0.5s ease-in;
 }
@@ -67,42 +68,6 @@ page-splitter > section {
 
 page-splitter > section > div.vcenter {
     margin: auto;
-}
-
-@media only screen and (min-width: 1600px) {
-    body {
-        display: flex;
-        flex-direction: row;
-        flex: 1;
-    }
-
-    header {
-        position: sticky;
-        top: 1em;
-        text-align: left;
-        align-self: flex-start;
-    }
-
-    main {
-        width: 100%;
-    }
-    
-    header h1 {
-        text-align: left;
-        margin-left: 1em;
-    }
-
-    nav {
-        display: block; /* turn off flexbox centering above, so it is aligned left */
-    }
-
-    nav ul {
-        flex-direction: column; /* orient vertically to fit in sidebar */
-    }
-
-    nav ul a {
-        border-right: none !important;
-    }
 }
 
 /* Restrict paragraph width on larger screens */

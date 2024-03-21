@@ -13,6 +13,14 @@
     <script type="module" src="js/page-splitter.js"></script>
     <script type="module" src="js/slide-gallery.js"></script>
     <script typy="module" src="js/pageloadfade.js"></script>
+    <!-- Backup if javascript is disabled, so everything isn't completely invisible -->
+    <noscript>
+        <style>
+            .fadein {
+                opacity: 1 !important;
+            }
+        </style>
+    </noscript>
 
 </head>
 <body>
@@ -24,11 +32,12 @@
                 <li><a href="about.html" class="current">About</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="booklog.html">Book Log</a></li>
+                <li><a href="posts.html">Posts</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <page-splitter class="hidden">
+        <page-splitter class="fadein">
             <section slot="1">
                 <h2>General</h2>
                 <div class="vcenter">
@@ -52,13 +61,16 @@
 
                     <p>
                         I am interested in all things <span class="highlight">Fantasy</span> and <span class="highlight">Sci-fi</span>, and especially books. 
-                        I enjoy programming, and especially <span class="highlight">frontend design</span>. 
-                        I also enjoy lower level systems languages like <span class="highlight">C</span> and <span class="highlight">Rust</span>.
+                        I especially enjoy systems programming and systems design in general. I also try and go for runs when I get the chance.
                     </p>
 
                     <p>
                         I am currently one of two Software Leads for the club <span class="highlight">Triton UAS</span> at UCSD.
                         To learn more about what we do, please visit <a href="https://tuas.ucsd.edu/">our website</a>.
+                    </p>
+
+                    <p>
+                        If you would like to view my resume, click <a href="/data/2024-02-17-resume-lentz.pdf">here</a>
                     </p>
 
                     <p>
@@ -82,15 +94,15 @@
 
                     <p>
                         I graduated from <span class="highlight">Saugus High School</span> in the year 2020.
-                        From there I went to <span class="highlight">UCSD</span> where I currently am in my third year and am
-                            expected to graduate in June of 2024.
+                        From there I went to <span class="highlight">UCSD</span> where I currently am in my fourth and final year and am
+                            expected to graduate this June.
                         Some of my favorite classes I've taken at <span class="highlight">UCSD</span> include:
                     </p>
                     <ul class="class-list">
                         <li>CSE 120: <span class="highlight">Operating Systems</span>, taught by Professor <span class="highlight">Joseph Pasquale</span>.</li>
+                        <li>CSE 123: <span class="highlight">Computer Networksl</span>, taught by Professor <span class="highlight">Alex Snoeren</span>.</li>
                         <li>CSE 131: <span class="highlight">Compiler Construction</span>, taught by Professor <span class="highlight">Joe Politz</span>.</li>
                         <li>CSE 134B: <span class="highlight">Web Client Languages</span>, taught by Professor <span class="highlight">Thomas Powell</span>.</li>
-                        <li>CSE 150B: <span class="highlight">AI: Search and Reasoning</span>, taught by Professor <span class="highlight">Sicun Gao</span>.</li>
                     </ul>
                 </div>
             </section >
@@ -100,9 +112,9 @@
 
                     <p> I have experience in the following languages, roughly in order from most to least comfortable. </p>
                     <ol>
-                        <li class="highlight">Javascript, CSS, HTML</li>
                         <li class="highlight">C, C++</li>
                         <li class="highlight">Rust</li>
+                        <li class="highlight">Javascript, CSS, HTML</li>
                         <li class="highlight">Python</li>
                         <hr>
                         <li class="highlight">React</li>
@@ -120,6 +132,7 @@
                         <li class="highlight">Github</li>
                         <li class="highlight">Linux/Unix Command Line</li>
                         <li class="highlight">Bash</li>
+                        <li class="highlight">CMake</li>
                         <hr>
                         <li class="highlight">Technical Writing</li>
                         <li class="highlight">Agile Development</li>
