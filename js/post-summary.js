@@ -27,7 +27,7 @@ class PostSummary extends HTMLElement {
     #makeHTML() {
         return /*html*/`
             <div id="container">
-                <img id="img" src="${this.getAttribute("imgsrc")}">
+                <img id="img" width=300 src="${this.getAttribute("imgsrc")}">
                 <slot name="title"> 
                 </slot> 
                 <p id="date"> ${this.getAttribute("date")} </p>
@@ -47,6 +47,9 @@ class PostSummary extends HTMLElement {
                 #container {
                     display: flex;
                     flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 16pt;
                 }
 
                 #date {

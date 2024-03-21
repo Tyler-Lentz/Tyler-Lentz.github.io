@@ -2,8 +2,8 @@
 
 .content-grid {
   --padding-inline: 1rem;
-  --content-max-width: 900px;
-  --breakout-max-width: 1200px;
+  --content-max-width: 1200px;
+  --breakout-max-width: 1600px;
 
   --breakout-size: calc(
     (var(--breakout-max-width) - var(--content-max-width)) / 2
@@ -25,8 +25,11 @@
 }
 
 p {
-    line-height: 1.6;
+    line-height: 22pt;
+    font-size: 14pt;
     margin: 0;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .content-grid > :not(.breakout, .full-width),
@@ -46,9 +49,10 @@ p {
 }
 
 img.full-width {
-  width: 100%;
-  max-height: 45vh;
+  width: 90%;
+  max-height: 60vh;
   object-fit: cover;
+  margin: auto;
 }
 
 .breakout {
