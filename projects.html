@@ -93,16 +93,38 @@
                             </p>
                         </div>
                         <div slot="2">
+                            <h3><span class="highlight">OBCpp:</span> Onboard Computer++</h3>
+                            <project-summary 
+                                languages="cpp"
+                                github="https://github.com/tritonuas/obcpp"
+                                tags="cpp machine-learning hardware-interop networking project-manager">
+                            </project-summary>
+                            <p>
+                                The most impactful project I have been involved with as a part of TUAS has been the porting of our onboard computer
+                                program from Python to C++. The onboard computer is responsible for all of the second-to-second operations of the plane,
+                                such as path planning, mission management, camera controls, computer vision, and communicating with both the ground and
+                                other components on the plane itself, such as the airdrop payloads and the flight controller.
+                            </p>
+                            <p>
+                                The structure of this codebase is something I helped design and am very proud of. Essentially, the whole program is modelled as a
+                                state machine, where each different "state" of the mission can be modeled as a "Tick": a piece of code that runs at a specified interval.
+                                This makes the codebase very modular, because modifying the flow of the autonomous mission is as easy as "rewriring" how ticks
+                                transition to each other, or adding new ticks to define new behaviors.
+                            </p>
+                            <p>
+                                Click <a href="images/projects/tritonuas/tick.jpg">here</a> to view the state diagram for the entire mission.
+                            </p>
+                        </div>
+                        <div slot="3">
                             <h3><span class="highlight">Houston:</span> Ground Control Station Frontend</h3>
                             <project-summary 
                                 languages="javascript css html"
-                                tags="vanilla-js web-dev project-manager">
+                                github="https://github.com/tritonuas/gcs"
+                                tags="react-js web-dev project-manager">
                             </project-summary>
                             <p>
-                                The frontend of our ground control station, dubbed <span class="highlight">Houston</span>, is a web app that allows us to 
+                                The frontend of our ground control station, dubbed <span class="highlight">Houston</span>, is a React web app that allows us to 
                                 monitor the status of the plane while in flight and change any parameters we need to. 
-                                It is currently built in Vanilla <span class="highlight">JS/CSS/HTML</span>, but we plan to migrate it to a framework 
-                                in the future to make it easier to develop.
                             </p>
                             <p>
                                 It currently allows the user to monitor the connectivity status of the plane; important telemetry like altitude, 
@@ -111,17 +133,18 @@
                                 them to the plane.
                             </p>
                             <img 
-                                src="images/projects/tritonuas/houston.png" 
+                                src="images/projects/tritonuas/houston.jpg" 
                                 alt="Control page of the ground control station"
                                 class="center"
-                                width="707"
-                                height="347"
+                                width="563"
+                                height="331"
                                 >
                         </div>
-                        <div slot="3">
+                        <div slot="4">
                             <h3><span class="highlight">Hub:</span> Ground Control Station Backend</h3>
                             <project-summary 
                                 languages="go docker"
+                                github="https://github.com/tritonuas/gcs"
                                 tags="backend gin project-lead HTTP REST">
                             </project-summary>
                             <p>
@@ -133,7 +156,7 @@
                                 on the plane to request data relevant to the competition mission.
                             </p>
                         </div>
-                        <div slot="4">
+                        <div slot="5">
                             <h3>RRT* Static Path Planning</h3>
                             <project-summary 
                                 languages="python" 
@@ -141,9 +164,8 @@
                             </project-summary>
                             <p>
                                 In order to plan the static path that the plane will take through the competition waypoints, we developed a system
-                                that utilizes an RRT* algorithm for path planning. The algorithm is implemented in <span class="highlight">Python</span>,
-                                and the output is a series of "guidance" waypoints which trace the important parts of the path, which are then fed into
-                                our <span class="highlight">Ardupilot</span> autopilot so that it can fly the path as best as it can.
+                                that utilizes an RRT* algorithm for path planning. I developed the original implementation of this algorithm in Python,
+                                which has since been converted to C++ (and greatly improved!)
                             </p>
                             <img 
                                 src="images/projects/tritonuas/rrtstar.gif" 
