@@ -99,6 +99,7 @@ class PageSplitter extends HTMLElement {
                     align-items: center;
                     width: fit-content;
                     margin: auto;
+                    background-color: var(--ctp-frappe-crust);
                 }
             </style>
         `
