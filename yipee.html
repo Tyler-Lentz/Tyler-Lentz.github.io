@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yipee!</title>
+    <link rel="stylesheet" href="css/global.css">
+    <style>
+        .yipee {
+            position: absolute;
+            top: 20vh;
+            animation-name: move;
+            animation-duration: 2.2s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: 1;
+        }
+
+        @keyframes move {
+            from {
+                left: 0vw;
+            } 
+            to {
+                left: 60vw;
+            }
+        }
+
+        @media (max-width: 1250px) {
+            @keyframes move {
+                from {
+                    left: 0vw;
+                } 
+                to {
+                    left: 0vw;
+                }
+            }
+        }
+
+        #btn-container {
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        #btn {
+            width: fit-content;
+            margin-bottom: 10rem;
+            font-size: 2rem;
+        }
+
+    </style>
+    <script>
+        var counter = 0;
+        document.addEventListener("DOMContentLoaded", () => {
+            let btn = document.getElementById('btn');
+            btn.addEventListener("click", () => {
+                btn.insertAdjacentHTML("afterend", `
+                    <img class="yipee" style="left: 0vw" id="yippee-${counter}"src="./images/yipee/yipee-${counter % 20}.gif"></img> 
+                `);
+                setTimeout(() => {
+                    let sound = new Audio('./images/yipee/yippee.mp3');
+                    sound.play();
+                }, 300);
+                const curr_val = counter;
+                setTimeout(() => {
+                    document.getElementById(`yippee-${curr_val}`).remove();
+                }, 2200);
+                counter++;
+            });
+        });
+    </script>
+
+<body>
+    <div id="btn-container">
+        <button id="btn">Click me</button>
+    </div>
+</body>
+
+</html>
