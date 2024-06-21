@@ -34,6 +34,12 @@ html:focus-within {
   scroll-behavior: smooth;
 }
 
+html {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
 /* Set core body defaults */
 body {
   min-height: 100vh;
@@ -144,13 +150,23 @@ hr {
 /* Font */
 
 @font-face {
-  font-family: 'Jetbrains Mono';
-  font-display: swap;
-  src: url("../fonts/JetBrainsMono-Regular.ttf");
+	font-family: 'Jetbrains Mono';
+	font-display: swap;
+	src: url("../fonts/JetBrainsMono-Regular.ttf");
+}
+
+@font-face {
+	font-family: 'Roboto';
+	font-display: swap;
+	src: url("../fonts/Roboto-Regular.ttf")
+}
+
+h1, h2, h3, h4, h5, nav {
+    font-family: 'Jetbrains Mono', monospace;
 }
 
 body {
-    font-family: 'Jetbrains Mono', monospace;
+    font-family: 'Roboto', sans-serif;
     font-size: 16px;
     line-height: 1.5;
     caret-color: transparent;
