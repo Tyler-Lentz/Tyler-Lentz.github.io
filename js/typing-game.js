@@ -4,15 +4,6 @@ class TypingGame extends HTMLElement {
 
     constructor() {
         super();
-
-        this.sounds = [
-            new Audio('../audio/type.wav'),
-            new Audio('../audio/type.wav'),
-        ]
-        for (const sound of this.sounds) {
-            sound.volume = 0.1;
-        }
-        this.currentSound = 0;
     }
 
     connectedCallback() {
@@ -42,12 +33,6 @@ class TypingGame extends HTMLElement {
     }
 
     #playSound() {
-        this.sounds[this.currentSound].currentTime = 0;
-        this.sounds[this.currentSound].play();
-        this.currentSound++;
-        if (this.currentSound >= this.sounds.length) {
-            this.currentSound = 0;
-        }
     }
 
     #retractCurrentLetter() {
